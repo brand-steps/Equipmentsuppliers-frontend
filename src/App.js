@@ -83,6 +83,7 @@ import Utensilsedit from "./Pages/Userdashboard/Edituserproduct/Utensilsedit";
 import Catalog from "./Pages/Catalogue/Catalog";
 import Customerorder from "./Pages/Orders/Customerorder";
 import { Allorder } from "./Pages/AdminDashboard/Allorders/Allorder";
+import BestSellers from "./Pages/AdminDashboard/BestSellers/BestSeller";
 
 function App() {
   return (
@@ -120,6 +121,7 @@ function App() {
               <Route path="/Productdetail2" element={<Productdetail2 />} />
               <Route path="/CardPage" element={<CardPage />} />
               <Route path="/productrequest" element={<Productrequest />} />
+              <Route path="/bestSeller" element={<BestSellers />} />
               <Route path="/UserProduct" element={<Selectuserproduct />} />
               <Route path="/signupform" element={<Signform />} />
               <Route path="/Loginform" element={<LoginForm />} />

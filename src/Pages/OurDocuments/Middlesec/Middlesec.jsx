@@ -6,17 +6,18 @@ const Middlesec = () => {
     <div className="flex flex-col md:flex-row justify-center">
       <div     className='px-4 md:px-12 		'>
         <h1 className='text-2xl md:text-3xl font-bold pr-6 pt-4 text-left'>
-          Corporate
+          Document
         </h1>
         <ul className='pt-8   '>
-        <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/Corporate">About Us</NavLink> </li>
-        <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/Prducts">Products</NavLink> </li>
-          <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/Contact">Contact</NavLink> </li>
-          <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/vendorlogin">Vendor Login</NavLink> </li>
-
-          <li  
+        <li  
           style={{ background: 'red', color: 'white' }}
           className='px-20 p-2 mb-4'>Our Documents</li>
+        <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/TechnicalService">About Us</NavLink> </li>
+        <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/Prducts">Products</NavLink> </li>
+          <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/Contact">Contact</NavLink> </li>
+        {/*}  <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/vendorlogin">Vendor Login</NavLink> </li>
+*/}
+
         </ul>
         
       </div>

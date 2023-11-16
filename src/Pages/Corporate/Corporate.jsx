@@ -9,7 +9,7 @@ const Corporate = () => {
   return (
     <div>
 <Home/>
-<Second   name="ABOUT US" text="Home  > Corporate >  AboutUs"  />
+<Second   name="SUPPLIER" text="Home  > Supplier"  />
 <MiddleSec/>
 <Footer/>
     </div>

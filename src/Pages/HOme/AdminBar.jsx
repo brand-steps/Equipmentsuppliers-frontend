@@ -150,6 +150,11 @@ const AdminBar = () => {
           Payments
         </li>
         </Link>
+        <Link to="/bestSeller">
+        <li className="border-t md:border-none mt-2 mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
+          BestSeller
+        </li>
+        </Link>
         <Link to="/UserProduct">
         <li className="border-t md:border-none mt-2 mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
           User Product

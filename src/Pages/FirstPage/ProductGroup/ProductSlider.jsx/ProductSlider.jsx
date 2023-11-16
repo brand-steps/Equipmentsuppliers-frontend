@@ -13,7 +13,7 @@ const [Delete , setdelete] = useState(false);
 
 const getAllProducts = async () => {
   try {
-    const response = await axios.get(`http://localhost:8000/productrequestalltrue`);
+    const response = await axios.get(`http://localhost:8000/bestsellerdisplaytrue`);
     console.log("response: ", response);
     console.log(response.data);
     setProducts(response.data.data);

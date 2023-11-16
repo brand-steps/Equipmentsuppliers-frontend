@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import Footer from '../Foooter/Footer';
 import Home from '../HOme/Home';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { MyContext } from '../Context/Context';
 import CartContext from '../Context/CartContext';
 import { useEffect } from 'react';
 import axios from 'axios';
+
 const PaymentPage = () => {
+  const navigate = useNavigate();
   const { totalPrice } = useParams();
   const { quantity } = useParams();
   const {name, setName} = useContext(MyContext);
@@ -17,7 +19,8 @@ const PaymentPage = () => {
   const [total, setTotal] = useState(0);
   const { cartItems } = useContext(CartContext);
   const [data, setData] = useState(cartItems);
-  //const allProduct = [name ,  totalPrice , description , image ,  totalPrice]
+  const allProduct = [name ,  totalPrice , description , image ,  totalPrice]
+  const { removefromcart } = useContext(CartContext);
 
   const [email, setemail] = useState();
   const [username, setusername] = useState();
@@ -30,13 +33,27 @@ const PaymentPage = () => {
   const [shipping, setshipping] = useState();
   const [phone, setphone] = useState();
 
+  const buttonStyle = {
+    background: '#EC0C36',
+    color: 'white',
+    padding: '8px 16px',
+    borderRadius: '8px',
+    marginTop: '12px',
+    cursor: 'pointer',
+    width: '40px'
+  };
+  const removecontent = (names) => {
+    removefromcart(names)
+    alert("Product successfully removed")
+    navigate("/CardPage")
+  }
   useEffect(() => {
     // Calculate the total price whenever data changes
     const newTotal = data.reduce((acc, innerArray) => {
       return acc + innerArray[4] * innerArray[5];
     }, 0);
     setTotal(newTotal);
-  }, [data]);
+  }, [data], removecontent);
   {/*const handleitem =() => {
     for (let i=0; i<cartItems.length; i++) {
       console.log("i", i);
@@ -82,6 +99,7 @@ const PaymentPage = () => {
     }
   } 
   
+
   return (
     <div className='bg-gray-100'   >
 <Home/>
@@ -94,14 +112,20 @@ const PaymentPage = () => {
     <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
       
         {data.map((innerArray, index) => (
-          <div className="flex flex-col rounded-lg bg-white sm:flex-row"  key={index}>
+          <div className="flex flex-col  rounded-lg bg-white sm:flex-row"  key={index}>
           <img className="m-2 h-24 w-28 rounded-md border object-cover object-center" src={innerArray[3].key} alt="" />  
           <div className="flex w-full flex-col px-4 py-4">
           <span className="font-semibold">{innerArray[0].key}</span>
           <span className="font-semibold">x{innerArray[4]}</span>
           <p className="text-lg font-bold">£{innerArray[5] * innerArray[4]}</p>
         </div>
+        <div className="flex  items-end w-full flex-col px-4 py-4">
+          
+          <button style={buttonStyle} onClick={() => {removecontent(innerArray)}} className=''>X</button>
+{/*}        <i className="fa-solid fa-xmark text-left"></i>
+   */}     </div>
             </div>
+            
         ))}
    {/*}     <div className="flex w-full flex-col px-4 py-4">
           <span className="font-semibold">{name.key}</span>
@@ -131,7 +155,7 @@ const PaymentPage = () => {
         <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
           <img className="w-14 object-contain" src="/images/oG8xsl3xsOkwkMsrLGKM4.png" alt="" />
           <div className="ml-5">
-            <span className="mt-2 font-semibold">Rider Delivery</span>
+            <span className="mt-2 font-semibold">Rider Delivery </span>
             <p className="text-slate-500 text-sm leading-6">Delivery: 1-3 Days</p>
           </div>
         </label>

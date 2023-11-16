@@ -156,7 +156,7 @@ const Home = () => {
         </Link>
         <Link to="/Corporate">
         <li className="border-t md:border-none mt-2 mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
-          Corporate
+          Supplier
         </li>
         </Link>
         <Link to="/Prducts">

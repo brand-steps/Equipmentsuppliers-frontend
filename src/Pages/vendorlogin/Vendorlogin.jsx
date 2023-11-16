@@ -5,6 +5,7 @@ import axios from 'axios';
 import Home from '../HOme/Home'
 import Footer from '../Foooter/Footer'
 import Second from '../Corporate/SecondSec/Second'
+import SecondLogin from "../Corporate/SecondSec/SecondLogin";
 
 const VendorLogin = () => {
   const navigate = useNavigate();
@@ -88,14 +89,14 @@ const VendorLogin = () => {
   return (
     <>
           <Home/>
-<Second   name="Vendor Login" text="Home  > Corporate >  Vendor Login"  /> 
+<SecondLogin   name="Client Login" text1="Home  > " text2="Corporate > " text3="Client Login" /> 
 
 <div className="form-main">
               <div className='flex  justify-evenly flex-wrap my-4 mt-8' >
 
               <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 sm:mt-5 md:mt-5 dark:bg-gray-800 dark:border-gray-700">
     <div class="space-y-6">
-    <h4 class="text-xl font-medium text-gray-900 dark:text-white">New Vendor</h4>
+    <h4 class="text-xl font-medium text-gray-900 dark:text-white">New Client</h4>
         <hr/>
 
         <div>
@@ -112,10 +113,10 @@ const VendorLogin = () => {
 </div>
 <div class="w-full mt-6 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 sm:mt-5 md:mt-5 dark:bg-gray-800 dark:border-gray-700">
     <div class="space-y-6">
-        <h5 class="text-xl font-medium text-gray-900 dark:text-white">Returning Vendor</h5>
+        <h5 class="text-xl font-medium text-gray-900 dark:text-white">Returning Client</h5>
         <hr/>
         <div>
-        <h5 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-lg">I am a returning Vendor</h5>
+        <h5 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-lg">I am a returning client</h5>
         </div>
         <div>
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>

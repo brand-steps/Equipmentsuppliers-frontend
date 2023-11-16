@@ -13,9 +13,9 @@ const MiddleSecTeachnical = () => {
           <li style={{ background: 'red', color: 'white' }} className='px-20 p-2 mb-4'>
             About Us
           </li>
+          <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/OurDocument">Our Documents</NavLink> </li>
           <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/Prducts">Products</NavLink> </li>
           <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/Contact">Contact</NavLink> </li>
-          <li  style={{"box-shadow": "rgba(149, 157, 165, 0.2) 0px 8px 24px"}}  className='px-20 p-2 mb-4'><NavLink to="/OurDocument">Our Documents</NavLink> </li>
         </ul>
       </div>
       {/* Mid Sec */}

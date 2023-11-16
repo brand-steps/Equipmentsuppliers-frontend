@@ -10,10 +10,19 @@ export const CartProvider = ({ children }) => {
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
   };
+{/*  const removefromcart = (names) => {
+    const filtereditem = cartItems.filter((item) => item.name !== names);
+    setCartItems(...filtereditem);
+} */}
 
+const removefromcart = (varietalcount) => {
+  const newitems = cartItems.filter((item) => item !== varietalcount)
+  setCartItems(newitems);
+};
   const cartData = {
     cartItems,
     addToCart,
+    removefromcart
   };
 
   return (
