@@ -84,14 +84,19 @@ import Catalog from "./Pages/Catalogue/Catalog";
 import Customerorder from "./Pages/Orders/Customerorder";
 import { Allorder } from "./Pages/AdminDashboard/Allorders/Allorder";
 import BestSellers from "./Pages/AdminDashboard/BestSellers/BestSeller";
-
+import { Suspense } from "react";
+import SusexPage from "./Pages/Citiespages/SusexPage";
+import KantPage from "./Pages/Citiespages/KantPage";
+import SurryPage from "./Pages/Citiespages/SurryPage";
 function App() {
   return (
     <div>
       <CartProvider>
         <MyContextProvider>
+        <Suspense >
           <BrowserRouter>
             <Routes>
+
               <Route path={"/"} element={<MainPage />} />
               <Route path={"/Corporate"} element={<Corporate />} />
               <Route path={"/About"} element={<About />} />
@@ -169,8 +174,13 @@ function App() {
               <Route path="/steeledit/:id" element={<Steeledit />} />
               <Route path="/utensilsedit/:id" element={<Utensilsedit />} />
 
+              <Route path="/Sussex" element={<SusexPage />} />
+              <Route path="/Kent" element={<KantPage />} />
+              <Route path="/Surry" element={<SurryPage />} />
+
             </Routes>
           </BrowserRouter>
+          </Suspense>
         </MyContextProvider>
       </CartProvider>
     </div>

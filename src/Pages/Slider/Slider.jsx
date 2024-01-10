@@ -11,18 +11,19 @@ import img3 from '../../Images/Equipmwent -03.jpg';
 import img4 from '../../Images/Equipmwent -04.jpg';
 import img5 from '../../Images/equiptest.jpg';
 import img6 from '../../Images/equiptest2.jpg';
-
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom';
 
 const Slider = () => {
+  const {t} = useTranslation(["home"]);
   const navigate = useNavigate();
   const images = [img1, img3, img6, img5];
-  const headings = [' OVENS & STEAMERS', 'FOOD PREPARATION ', 'COOKING EQUIPMENTS', 'BEVERAGE EQUIPMENTS'];
+  const headings = [`${t("oven")}`, `${t("foodpreparation")}`, `${t("cooking")}`, `${t("beverageequipment")}`];
   const paragraphs = [
-    'Many types of ovens available',
-    'kitchen equipment including planetary mixers and meat mincers',
-    ' we are experts at supplying cooking equipment',
-    'Commercial beverage equipments available',
+    `${t("ovendes")}`,
+    `${t("kitchendes")}`,
+    `${t("cookingdes")}`,
+    `${t("beveragedes")}`,
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -61,10 +62,10 @@ const Slider = () => {
       <p className="text-white mt-2">{paragraphs[currentParagraphIndex]}</p>
       <button
       onClick={() => {navigate("/Prducts")}}
-        style={{ "background": "#EC0C36" }}
-        className="text-white font-semibold px-4 py-2 -2  rounded-lg mt-4 hover:bg-blue-700 "
+        style={{ "background": "#d6b02e" }}
+        className="text-black font-semibold px-4 py-2 -2  rounded-lg mt-4 hover:bg-blue-700 "
       >
-        Details
+        {t("details")}
       </button>
     </div>
 

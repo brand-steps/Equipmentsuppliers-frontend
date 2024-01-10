@@ -18,7 +18,7 @@ export const Productrequest = () => {
 
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/productrequestall`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/productrequestall`);
       console.log("response: ", response);
       console.log(products);
       setProducts(response.data.data);
@@ -29,7 +29,7 @@ export const Productrequest = () => {
 
   const deleteData = async (id)=>{
     try {
-      const response = await axios.delete(`http://localhost:8000/productreq/${id}`)
+      const response = await axios.delete(`https://sore-cyan-fly-kit.cyclic.app/stockdel/${id}`)
       console.log("response: ", response.data);
       setdelete(!Delete)
     } catch (error) {
@@ -40,7 +40,7 @@ export const Productrequest = () => {
 
   const approveData = async (id)=>{
     try {
-      const response = await axios.get(`http://localhost:8000/productreqedit/${id}`)
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/productreqedit/${id}`)
       console.log("response: ", response.data);
     } catch (error) {
       console.log("error in approving all requests", error);

@@ -1,0 +1,11 @@
+{
+    "product": "Produkt",
+    "price": "Preis",
+    "quantity": "Menge",
+    "summary" : "Zusammenfassung",
+    "subtotal": "Zwischensumme",
+    "taxes": "Steuern",
+    "shipping": "Versand",
+    "total": "Gesamt",
+    "checkout": "Kasse"
+}

@@ -28,8 +28,10 @@ import ste20 from '../../Images/ste20.jpg';
 import ste21 from '../../Images/ste21.jpg';
 import ste22 from '../../Images/ste22.jpg';
 import ste23 from '../../Images/ste23.jpg';
+import { useTranslation } from 'react-i18next'
 
 const Stainlesssteel = () => {
+  const {t} = useTranslation(["product"]);
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
@@ -86,7 +88,7 @@ const Stainlesssteel = () => {
   };
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/StainlessSteel?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/StainlessSteel?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)
@@ -184,99 +186,99 @@ const Stainlesssteel = () => {
 
         <div style={containerStyle} className="subhovers" onClick={Geticecream}>
         <img src={ste1} alt="Fairs" style={imageStyle} />
-        <p>Work Tables</p>
+        <p>{t("WorkTables")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getjuice}>
         <img src={ste2} alt="Fairs" style={imageStyle} />
-        <p>Sink Units with 1 & 2 Bowls</p>
+        <p>{t("Sink12Bowls")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getmachine}>
         <img src={ste3} alt="Fairs" style={imageStyle} />
-        <p>Sink Units with 3 Bowls</p>
+        <p>{t("Sink3Bowls")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getmixers}>
         <img src={ste4}alt="Fairs" style={imageStyle} />
-        <p>Sink Top Storage Cupboards</p>
+        <p>{t("SinkTopStorage")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getslush}>
         <img src={ste5} alt="Fairs" style={imageStyle} />
-        <p>Sink Tops</p>
+        <p>{t("SinkTops")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getbar}>
         <img src={ste6} alt="Fairs" style={imageStyle} />
-        <p>Sink Units For Dishwashers</p>
+        <p>{t("SinkUnitsDishwashers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getmilshake}>
         <img src={ste7} alt="Fairs" style={imageStyle} />
-        <p>Wall Shelves</p>
+        <p>{t("WallShelves")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getespress}>
         <img src={ste8} alt="Fairs" style={imageStyle} />
-        <p>Wash Basin & Hand Sinks</p>
+        <p>{t("WashBasin")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getfilter}>
         <img src={ste9} alt="Fairs" style={imageStyle} />
-        <p>Bar Sinks</p>
+        <p>{t("BarSinks")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getcoffee}>
         <img src={ste10} alt="Fairs" style={imageStyle} />
-        <p>Base Storage Cupboards</p>
+        <p>{t("BaseStorage")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getpercol}>
         <img src={ste11} alt="Fairs" style={imageStyle} />
-        <p>Ice Bins</p>
+        <p>{t("IceeBins")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getwater}>
         <img src={ste12} alt="Fairs" style={imageStyle} />
-        <p>Plain Top Hot Cupboards</p>
+        <p>{t("PlainCupboards")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getchoco}>
         <img src={ste13} alt="Fairs" style={imageStyle} />
-        <p>Cabinet Storage Cupboards</p>
+        <p>{t("CabinetStorageCupboards")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getcup}>
         <img src={ste14} alt="Fairs" style={imageStyle} />
-        <p>Work Stations</p>
+        <p>{t("WorkStations")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={GetGlass}>
         <img src={ste15} alt="Fairs" style={imageStyle} />
-        <p>Wall Cupboards</p>
+        <p>{t("WallCupboards")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getunderdish}>
         <img src={ste16} alt="Fairs" style={imageStyle} />
-        <p>Gantries & Chefs Passes</p>
+        <p>{t("GantriesChefs")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getpassthrough}>
         <img src={ste17} alt="Fairs" style={imageStyle} />
-        <p>Extraction Canopies</p>
+        <p>{t("ExtractionCanopies")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getdishwash}>
         <img src={ste18} alt="Fairs" style={imageStyle} />
-        <p>Grease Traps & Fat Seperators</p>
+        <p>{t("GreaseTraps")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getcuttlery}>
         <img src={ste19} alt="Fairs" style={imageStyle} />
-        <p>Shelving Units</p>
+        <p>{t("ShelvingUnits")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getshower}>
         <img src={ste20} alt="Fairs" style={imageStyle} />
-        <p>Equipment Stands</p>
+        <p>{t("EquipmentStands")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getracks}>
         <img src={ste21} alt="Fairs" style={imageStyle} />
-        <p>Waste Bins</p>
+        <p>{t("WasteBins")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getcandy}>
         <img src={ste22} alt="Fairs" style={imageStyle} />
-        <p>Trolleys & Carts</p>
+        <p>{t("TrolleysCarts")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getinsect}>
         <img src={ste23} alt="Fairs" style={imageStyle} />
-        <p>Stainless Steel GN Pans & Containers</p>
+        <p>{t("StainlessSteelGN")}</p>
       </div>
      
       
@@ -284,7 +286,7 @@ const Stainlesssteel = () => {
 
       </div>
       <hr/>
-<h1 className="flex  flex-wrap justify-center heads">Products</h1>
+<h1 className="flex  flex-wrap justify-center heads">{t("products")}</h1>
 <div className='flex  flex-wrap justify-center   '>
         {products.map((eachProduct, i) => (
           <Cardss index={eachProduct._id} price={eachProduct.price} img={eachProduct.imageUrl} text={eachProduct.name} 

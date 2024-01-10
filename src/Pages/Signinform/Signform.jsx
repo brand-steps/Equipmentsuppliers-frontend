@@ -5,8 +5,10 @@ import { useNavigate , useParams} from 'react-router';
 import axios from 'axios'
 import './signinform.css'
 import Loginbar from '../HOme/Loginbar';
+import { useTranslation } from 'react-i18next'
 
 const Signform = () => {
+  const {t} = useTranslation(["login"]);
   const navigate = useNavigate();
     const [email, setemail] = useState()
     const [firstname, setFirstName] = useState()
@@ -87,7 +89,7 @@ const Signform = () => {
 
         if (firstname && email && phone && company && postal && address &&country &&city && password && reTypepassword) {
           try {
-            const response = await axios.post('http://localhost:8000/register', {
+            const response = await axios.post('https://sore-cyan-fly-kit.cyclic.app/register', {
               firstname,
               lastname,
               email,
@@ -129,52 +131,52 @@ const Signform = () => {
         <>
         <Loginbar/>
         <div className='rootcontainers'>
-        <h1 className='Headings bg-cyan-950 text-white'>Registeration For Vendors</h1>
+        <h1 className='Headings bg-cyan-950 text-white'>{t("regsupplier")}</h1>
         </div>
         <hr/>
    <div className='rootcontainer'>
-        <h3 className='Heading'>Your Personal Details</h3>
+        <h3 className='Heading'>{t("details")}</h3>
         <TextField fullWidth  onChange={(event) => { setemail(event.target.value); setEmailError("") }} label="Email" placeholder='Enter your Email' type='email' name="email" variant="outlined" />
         {emailError && <p className="error-message">{emailError}</p>} 
         
-        <TextField fullWidth  onChange={(event) => { setFirstName(event.target.value); setFirstError("") }} label="First Name" placeholder='Enter your First Name' name="firstname" variant="outlined"  />
+        <TextField fullWidth  onChange={(event) => { setFirstName(event.target.value); setFirstError("") }} label={`${t("firstname")}`} placeholder={`${t("firstname")}`} name="firstname" variant="outlined"  />
         {firstnameError && <p className="error-message">first name required</p>} 
         
-        <TextField fullWidth  onChange={(event) => { setLastName(event.target.value) }} label="Last Name" placeholder='Enter your Last Name' name="lastname" variant="outlined"  />
-        <TextField fullWidth  onChange={(event) => {setPhone (event.target.value); setPhoneError("")}} label="Mobile" placeholder='Enter your Mobile Number' name="phone" type='number' variant="outlined"  />
+        <TextField fullWidth  onChange={(event) => { setLastName(event.target.value) }} label={`${t("lastname")}`} placeholder={`${t("lastname")}`} name="lastname" variant="outlined"  />
+        <TextField fullWidth  onChange={(event) => {setPhone (event.target.value); setPhoneError("")}} label={`${t("phone")}`} placeholder={`${t("phone")}`} name="phone" type='number' variant="outlined"  />
         {phoneError && <p className="error-message">{phoneError}</p>} 
         
-        <TextField fullWidth  onChange={(event) => {setCompany (event.target.value); setCompanyError("") }} label="Company" placeholder='Enter your Company Name' name="company" variant="outlined"  />
+        <TextField fullWidth  onChange={(event) => {setCompany (event.target.value); setCompanyError("") }} label={`${t("company")}`}  name="company" placeholder={`${t("company")}`} variant="outlined"  />
         {CompanyError && <p className="error-message">{CompanyError}</p>} 
         
-        <h3 className='Heading'>Your Address</h3>
-        <TextField fullWidth  onChange={(event) => { setPostal(event.target.value); setPostalError("") }} label="Postal Code" placeholder='Enter postal code' name="postal" type='number' variant="outlined"  />
+        <h3 className='Heading'>{t("youraddress")}</h3>
+        <TextField fullWidth  onChange={(event) => { setPostal(event.target.value); setPostalError("") }} label={`${t("postal")}`} placeholder={`${t("postal")}`} name="postal" type='number' variant="outlined"  />
         {postalError && <p className="error-message">{postalError}</p>} 
         
         <TextField fullWidth  onChange={(event) => { setVat(event.target.value) }} label="VAT" placeholder='Enter your VAT Reg Number' name="vat" type='number' variant="outlined"  />
-        <TextField fullWidth  onChange={(event) => { setAddress(event.target.value); setAddressError("") }} label="Your Address" placeholder='Enter your Address' name="address" variant="outlined"  />
+        <TextField fullWidth  onChange={(event) => { setAddress(event.target.value); setAddressError("") }} label={`${t("youraddress")}`} placeholder={`${t("youraddress")}`} name="address" variant="outlined"  />
         {addressError && <p className="error-message">{addressError}</p>} 
        
-        <TextField fullWidth  onChange={(event) => { setComAddress(event.target.value) }} label="Company Address" placeholder='Enter company Address' name="companyaddress" variant="outlined"  />
+        <TextField fullWidth  onChange={(event) => { setComAddress(event.target.value) }} label={`${t("companyaddress")}`} placeholder={`${t("companyaddress")}`} name="companyaddress" variant="outlined"  />
         {/*<TextField fullWidth  onChange={(event) => { setCountry(event.target.value) }} placeholder='Enter your Country' name="country" variant="outlined"  />
         */}
   <select id="country" onChange={(event) => { setCountry(event.target.value); setCountryError("") }} name='country' className=" border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 0   ">
-        <option>Select a country</option>
+        <option>{t("country")}</option>
         <option value="United Kingdom">United Kingdom</option>
         <option value="United States">United States</option>
         <option value="Canada">Canada</option>
         <option value="germany">Germany</option>
 </select>
 {countryError && <p className="error-message">{countryError}</p>} 
-        <TextField fullWidth  onChange={(event) => { setCity(event.target.value); setCityError("") }} label="City" placeholder='Enter your City' name="city" variant="outlined"  />
+        <TextField fullWidth  onChange={(event) => { setCity(event.target.value); setCityError("") }} label={`${t("city")}`} placeholder={`${t("city")}`} name="city" variant="outlined"  />
         {cityError && <p className="error-message">{cityError}</p>} 
-        <TextField fullWidth  onChange={(event) => { setState(event.target.value) }} label="State" placeholder='Enter your State' name="state" variant="outlined"  />
+        <TextField fullWidth  onChange={(event) => { setState(event.target.value) }} label={`${t("state")}`} placeholder={`${t("state")}`} name="state" variant="outlined"  />
 
 <h3 className='Heading'>Your Password</h3>
-        <TextField fullWidth  onChange={(event) => { setPassword(event.target.value); setPasswordError("") }} label="Password" name="password" type='password' placeholder='Enter your Password' variant="outlined" />
+        <TextField fullWidth  onChange={(event) => { setPassword(event.target.value); setPasswordError("") }} label={`${t("password")}`} name="password" type='password' placeholder={`${t("password")}`} variant="outlined" />
         {passwordError && <p className="error-message">{passwordError}</p>} 
         
-        <TextField fullWidth  onChange={(event) => { setReTypePassword(event.target.value); setReTypePasswordError("") }} label="Retype Password" name="retype" type='password' placeholder='Retype Password' variant="outlined" />
+        <TextField fullWidth  onChange={(event) => { setReTypePassword(event.target.value); setReTypePasswordError("") }} label={`${t("retype")}`} name="retype" type='password' placeholder={`${t("retype")}`} variant="outlined" />
         {reTypePasswordError && <p className="error-message">{reTypePasswordError}</p>} 
         <Button fullWidth onClick={signupForm} variant="contained">Register</Button>
         </div>

@@ -1,0 +1,19 @@
+{
+    "order": "Bestellübersicht",
+    "orderdes": "Überprüfen Sie Ihre Artikel. Und wählen Sie eine passende Versandart aus.",
+    "shipping": "Versandarten",
+    "payment": "Zahlungsdetails",
+    "paymentdes": "Schließen Sie Ihre Bestellung ab, indem Sie Ihre Zahlungsdaten angeben.",
+    "cardname": "Name des Karteninhabers",
+    "cardhol": "Ihr vollständiger Name hier",
+    "mobile": "Handynummer",
+    "mobilehol": "Ihre Handynummer hier",
+    "carddetails": "Kartendetails",
+    "billing": "Rechnungsadresse",
+    "street": "Straßenadresse",
+    "subtotal": "Zwischensumme",
+    "shippingprice": "Versand",
+    "total": "Gesamt",
+    "placeorder": "Bestellung aufgeben"
+
+}

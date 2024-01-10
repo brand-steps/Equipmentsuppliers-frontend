@@ -17,8 +17,10 @@ import foo9 from '../../Images/foo9.jpg';
 import foo10 from '../../Images/foo10.jpg';
 import foo11 from '../../Images/foo11.jpg';
 import foo12 from '../../Images/foo12.jpg';
+import { useTranslation } from 'react-i18next'
 
 const Foodprep = () => {
+  const {t} = useTranslation(["product"]);
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
@@ -64,7 +66,7 @@ const Foodprep = () => {
   };
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/Foodprep?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/Foodprep?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)
@@ -129,56 +131,56 @@ const Foodprep = () => {
 
         <div style={containerStyle} className="subhovers" onClick={Geticecream}>
         <img src={foo1} alt="Fairs" style={imageStyle} />
-        <p>Planetary Mixers</p>
+        <p>{t("PlanetaryMixers")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getjuice}>
         <img src={foo2} alt="Fairs" style={imageStyle} />
-        <p>Spiral Mixers & Dough Kneaders</p>
+        <p>{t("SpiralMixers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getmachine}>
         <img src={foo3} alt="Fairs" style={imageStyle} />
-        <p>Vegetable Prep Machines</p>
+        <p>{t("VegetableMachines")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getmixers}>
         <img src={foo4} alt="Fairs" style={imageStyle} />
-        <p>Hand Mixers & immersion Blenders</p>
+        <p>{t("HandMixersBlenders")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getslush}>
         <img src={foo5} alt="Fairs" style={imageStyle} />
-        <p>Meat Mincers</p>
+        <p>{t("MeatMincers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getbar}>
         <img src={foo6} alt="Fairs" style={imageStyle} />
-        <p>Meat Slicers</p>
+        <p>{t("MeatSlicers")}</p>
       </div>
       </div>
       <div className='flex justify-evenly flex-wrap my-4' >
       <div style={containerStyle} className="subhovers" onClick={getmilshake}>
         <img src={foo7} alt="Fairs" style={imageStyle} />
-        <p>Bone Saw Machines</p>
+        <p>{t("BoneMachines")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getespress}>
         <img src={foo8} alt="Fairs" style={imageStyle} />
-        <p>Sausage Stuffers</p>
+        <p>{t("SausageStuffers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getfilter}>
         <img src={foo9} alt="Fairs" style={imageStyle} />
-        <p>Potato peelers</p>
+        <p>{t("Potatopeelers")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getcoffee}>
         <img src={foo10} alt="Fairs" style={imageStyle} />
-        <p>Bread Slicers</p>
+        <p>{t("BreadSlicers")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getpercol}>
         <img src={foo11} alt="Fairs" style={imageStyle} />
-        <p>Vacuum Machines</p>
+        <p>{t("VacuumMachines")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getwater}>
         <img src={foo12} alt="Fairs" style={imageStyle} />
-        <p>Hamburger Presses</p>
+        <p>{t("HamburgerPresses")}</p>
       </div>
       
      
@@ -187,7 +189,7 @@ const Foodprep = () => {
 
       </div>
       <hr/>
-<h1 className="flex  flex-wrap justify-center heads">Products</h1>
+<h1 className="flex  flex-wrap justify-center heads">{t("products")}</h1>
 <div className='flex  flex-wrap justify-center   '>
         {products.map((eachProduct, i) => (
           <Cardss index={eachProduct._id} price={eachProduct.price} img={eachProduct.imageUrl} text={eachProduct.name} 

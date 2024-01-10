@@ -1,0 +1,51 @@
+{
+    "customer": "New Customer",
+    "register": "Register Account",
+    "regdes": " By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.",
+    "continue": "Continue",
+    "returning": "Returning Customer",
+    "returningsub": "I am a returning customer",
+    "email": "Your email",
+    "password": "Your password",
+    "retype": "Retype Password",
+    "login": "Login to your account",
+
+    "signuphead": "Registeration For Customers",
+    "firstname": "First name",
+    "lastname": "Last name",
+    "phone": "Phone",
+    "postal": "Postal",
+    "emailaddress": "Email address",
+    "address": "Address",
+    "passwords": "Password",
+    "confirm": "Confirm password",
+    "country": "Select a country",
+    "city": "City",
+    "state": "State",
+    "registerscus": "Register",
+    "firstnameerror": "please enter your first Name",
+    "phoneerror": "please enter your mobile number",
+    "postalerror": "Please enter your postal code",
+    "emailerror": "Please enter your email",
+    "addresserror": "Please enter your address",
+    "passworderror": "Please enter your password",
+    "retypeerror": "Passwords do not match",
+    "countryerror": "Please select a country",
+    "cityerror": "please enter your city",
+
+
+    "clientlogin": "Client Login",
+    "suppliers": "Supplier >",
+    "newclient": "New Client",
+    "clientdes": "By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.",
+    "returningclient": "Returning Client",
+    "returningclientdes": "I am a returning client",
+
+    "regsupplier": "Registeration For Clients",
+    "company": "Company",
+    "details": "Your Personal Details",
+    "youraddress": "your Address",
+    "companyaddress": "company Address"
+
+    
+}

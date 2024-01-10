@@ -6,8 +6,11 @@ import Home from '../HOme/Home'
 import Footer from '../Foooter/Footer'
 import Second from '../Corporate/SecondSec/Second'
 import SecondLogin from "../Corporate/SecondSec/SecondLogin";
+import { useTranslation } from 'react-i18next'
 
 const VendorLogin = () => {
+  const {t} = useTranslation(["login"]);
+
   const navigate = useNavigate();
   const [email, setemail] = useState()
   const [password, setPassword] = useState()
@@ -22,7 +25,7 @@ const VendorLogin = () => {
     // https://glorious-hat-bat.cyclic.app      // old url
     else {
       try {
-        let response = await axios.post(`http://localhost:8000/login`, {
+        let response = await axios.post(`https://sore-cyan-fly-kit.cyclic.app/login`, {
           email: email,
           password: password
         }, {
@@ -89,47 +92,46 @@ const VendorLogin = () => {
   return (
     <>
           <Home/>
-<SecondLogin   name="Client Login" text1="Home  > " text2="Corporate > " text3="Client Login" /> 
+<SecondLogin   name={`${t("clientlogin")}`} text1="Home  > " text2={`${t("suppliers")}`} text3={`${t("clientlogin")}`} /> 
 
 <div className="form-main">
               <div className='flex  justify-evenly flex-wrap my-4 mt-8' >
 
               <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 sm:mt-5 md:mt-5 dark:bg-gray-800 dark:border-gray-700">
     <div class="space-y-6">
-    <h4 class="text-xl font-medium text-gray-900 dark:text-white">New Client</h4>
+    <h4 class="text-xl font-medium text-gray-900 dark:text-white">{t("newclient")}</h4>
         <hr/>
 
         <div>
         <h5 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-        By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.
-        
+        {t("clientdes")}        
         </h5>
                 </div>
 
 <div>
-                <button type="submit" onClick={() => {navigate("/signupform")}} class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 lg:mt-8">Continue</button>
+                <button type="submit" onClick={() => {navigate("/signupform")}} class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 lg:mt-8">{t("continue")}</button>
                 </div>
     </div>
 </div>
 <div class="w-full mt-6 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 sm:mt-5 md:mt-5 dark:bg-gray-800 dark:border-gray-700">
     <div class="space-y-6">
-        <h5 class="text-xl font-medium text-gray-900 dark:text-white">Returning Client</h5>
+        <h5 class="text-xl font-medium text-gray-900 dark:text-white">{t("returningclient")}</h5>
         <hr/>
         <div>
-        <h5 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-lg">I am a returning client</h5>
+        <h5 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-lg">{t("returningclientdes")}</h5>
         </div>
         <div>
-        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{t("email")}</label>
             <input type="email" name="email" id="email"  onChange={(event) => { setemail(event.target.value); setEmailError(false); }} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
         </div>
         <div>
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{t("password")}</label>
             <input type="password" name="password" onChange={(event) => { setPassword(event.target.value) }} id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
         </div>
         {errorMessage && (
           <p className="text-red-500 font-semibold">{errorMessage}</p>
         )}
-        <button onClick={LoginForm} class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
+        <button onClick={LoginForm} class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{t("login")}</button>
     </div>
 </div>
 
@@ -138,6 +140,7 @@ const VendorLogin = () => {
 
 
     </div>
+    <Footer/>
     </>
   );
 };

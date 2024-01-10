@@ -19,7 +19,7 @@ const Subcategorypage = () => {
     
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/subcategory/${subcat}?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/subcategory/${subcat}?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)

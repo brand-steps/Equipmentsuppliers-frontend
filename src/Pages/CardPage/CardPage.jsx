@@ -4,7 +4,10 @@ import Home from '../HOme/Home';
 import Footer from '../Foooter/Footer';
 import { useNavigate } from 'react-router-dom';
 import { MyContext } from '../Context/Context';
+import { useTranslation } from 'react-i18next'
+
 const CardPage = () => {
+  const {t} = useTranslation(["checkout"]);
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
   const { cartItems } = useContext(CartContext);
@@ -32,7 +35,9 @@ const CardPage = () => {
     newData[index][4]++; 
     setData(newData); 
   };
-
+const buttnstl = {
+  backgroundColor: '#d6b02e'
+}
   const handleDecreaseQuantity = (index) => {
     const newData = [...data];
     if (newData[index][4] > 1) {
@@ -61,9 +66,9 @@ navigate("/PaymentPage");
               <table className="w-full">
                 <thead>
                   <tr>
-                    <th className="text-left font-semibold">Product</th>
-                    <th className="text-left font-semibold">Price</th>
-                    <th className="text-left ml-6 font-semibold">Quantity</th>
+                    <th className="text-left font-semibold">{t("product")}</th>
+                    <th className="text-left font-semibold">{t("price")}</th>
+                    <th className="text-left ml-6 font-semibold">{t("quantity")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -107,25 +112,25 @@ navigate("/PaymentPage");
           </div>
           <div className="md:w-1/4">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-lg font-semibold mb-4">Summary</h2>
+              <h2 className="text-lg font-semibold mb-4">{t("summary")}</h2>
               <div className="flex justify-between mb-2">
-                <span>Subtotal</span>
+                <span>{t("subtotal")}</span>
                 <span>£{total}</span>
               </div>
               <div className="flex justify-between mb-2">
-                <span>Taxes</span>
+                <span>{t("taxes")}</span>
                 <span>{total ? "£1.99" : null}</span>
               </div>
               <div className="flex justify-between mb-2">
-                <span>Shipping</span>
+                <span>{t("shipping")}</span>
                 <span>£0.00</span>
               </div>
               <hr className="my-2" />
               <div className="flex justify-between mb-2">
-                <span className="font-semibold">Total</span>
+                <span className="font-semibold">{t("total")}</span>
                 <span className="font-semibold">£{total}</span>
               </div>
-              <button onClick={productCheckOut} className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
+              <button onClick={productCheckOut} style={buttnstl} className=" text-black font-bold py-2 px-4 rounded-lg mt-4 w-full">{t("checkout")}</button>
             </div>
           </div>
         </div>

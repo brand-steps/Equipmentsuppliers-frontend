@@ -18,7 +18,7 @@ export const Allorder = () => {
 
   const getAllOrders = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/displayorder`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/displayorder`);
       console.log("response: ", response);
       console.log(alluser);
       setalluser(response.data.data);

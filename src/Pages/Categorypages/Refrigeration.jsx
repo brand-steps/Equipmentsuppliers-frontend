@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react'
 import Home from "../HOme/Home";
 import axios from 'axios'
 import './categorypages.css';
+import { useTranslation } from 'react-i18next'
+
 import ref1 from '../../Images/ref1.jpg';
 import ref2 from '../../Images/ref2.jpg';
 import ref3 from '../../Images/ref3.jpg';
@@ -38,6 +40,7 @@ import ref30 from '../../Images/ref30.jpg';
 import ref31 from '../../Images/ref31.jpg';
 
 const Refrigration = () => {
+  const {t} = useTranslation(["product"]);
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
@@ -102,7 +105,7 @@ const Refrigration = () => {
   };
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/Refrigration?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/Refrigration?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)
@@ -225,138 +228,138 @@ const getdis = () => {
 
         <div style={containerStyle} className="subhovers" onClick={Getsubcat}>
         <img src={ref1} alt="Fairs" style={imageStyle} />
-        <p>Beer Fridges</p>
+        <p>{t("Beer")}</p>
       </div>
 
       <div style={containerStyle} onClick={Getbackbar} className="subhovers">
         <img src={ref2} alt="Fairs" style={imageStyle} />
-        <p>Back Bar Refrigerators</p>
+        <p>{t("BackBar")}</p>
       </div>
       <div style={containerStyle} onClick={Getminifridge} className="subhovers">
         <img src={ref3} alt="Fairs" style={imageStyle} />
-        <p>Mini Fridges</p>
+        <p>{t("MiniFridges")}</p>
       </div>
       <div style={containerStyle} onClick={Getbottle} className="subhovers">
         <img src={ref4} alt="Fairs" style={imageStyle} />
-        <p>Bottle Coolers</p>
+        <p>{t("BottleCoolers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getwine}>
         <img src={ref5} alt="Fairs" style={imageStyle} />
-        <p>Wine Coolers</p>
+        <p>{t("WineCoolers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getUndercounter}>
         <img src={ref6} alt="Fairs" style={imageStyle} />
-        <p>Undercounter Fridges</p>
+        <p>{t("UndercounterFridges")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getglass}>
         <img src={ref8} alt="Fairs" style={imageStyle} />
-        <p>Glass Door Fridges</p>
+        <p>{t("GlassDoorFridges")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getUnderfreez}>
         <img src={ref7} alt="Fairs" style={imageStyle} />
-        <p>Undercounter Freezers</p>
+        <p>{t("UndercounterFreezers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getIcemaker}>
         <img src={ref9} alt="Fairs" style={imageStyle} />
-        <p>Ice Makers</p>
+        <p>{t("IceMakers")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={getuprightfri}>
         <img src={ref10} alt="Fairs" style={imageStyle} />
-        <p>Upright Fridges</p>
+        <p>{t("UprightFridges")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers"onClick={getuprightfre}>
         <img src={ref11} alt="Fairs" style={imageStyle} />
-        <p>Upright Freezers</p>
+        <p>{t("UprightFreezers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getchestfre}>
         <img src={ref12} alt="Fairs" style={imageStyle} />
-        <p>Chest Freezers</p>
+        <p>{t("ChestFreezers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getrefdis}>
         <img src={ref13} alt="Fairs" style={imageStyle} />
-        <p>Refrigerated Displays & Merchandisers</p>
+        <p>{t("RefrigeratedDisplays")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getcakecoun}>
         <img src={ref14} alt="Fairs" style={imageStyle} />
-        <p>Cake Counters & Patisserie Showcases</p>
+        <p>{t("CakeCounters")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getserveover}>
         <img src={ref15} alt="Fairs" style={imageStyle} />
-        <p>Serve Over Counters & Deli Display Refrigerators</p>
+        <p>{t("ServeOverCounters")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getcounterfri}>
         <img src={ref16} alt="Fairs" style={imageStyle} />
-        <p>Counter Fridges</p>
+        <p>{t("CounterFridges")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getdryagi}>
         <img src={ref17} alt="Fairs" style={imageStyle} />
-        <p>Dry Aging Refrigerators</p>
+        <p>{t("DryAgingRefrigerators")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getlowref}>
         <img src={ref18} alt="Fairs" style={imageStyle} />
-        <p>Low Refrigerated Counters Chef Bases</p>
+        <p>{t("LowRefrigeratedCounters")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={getcounterfre}>
         <img src={ref19} alt="Fairs" style={imageStyle} />
-        <p>Counter Freezers</p>
+        <p>{t("CounterFreezers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getpizzatab}>
         <img src={ref20} alt="Fairs" style={imageStyle} />
-        <p>Refrigerated Pizza Tables</p>
+        <p>{t("RefrigeratedPizza")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getsalad}>
         <img src={ref21} alt="Fairs" style={imageStyle} />
-        <p>Salad & Sandwitch Preparation Counters</p>
+        <p>{t("SaladSandwitch")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getSaladettes}>
         <img src={ref22} alt="Fairs" style={imageStyle} />
-        <p>Saladettes</p>
+        <p>{t("Saladettes")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getdisplayref}>
         <img src={ref23} alt="Fairs" style={imageStyle} />
-        <p>Display Refrigerated Counters</p>
+        <p>{t("DisplayRefrigerated")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getbakery}>
         <img src={ref24} alt="Fairs" style={imageStyle} />
-        <p>Bakery Refrigeration</p>
+        <p>{t("BakeryRefrigeration")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getpreptops}>
         <img src={ref25} alt="Fairs" style={imageStyle} />
-        <p>Refrigerated Prep Tops</p>
+        <p>{t("RefrigeratedPrep")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getsushi}>
         <img src={ref26} alt="Fairs" style={imageStyle} />
-        <p>Sushi & Tapas Display Showcases</p>
+        <p>{t("SushiDisplayShowcases")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getmulti}>
         <img src={ref27} alt="Fairs" style={imageStyle} />
-        <p>Multi Deck Displays & Refrigerated Wall Cabinets</p>
+        <p>{t("MultiDeckDisplays")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getsupers}>
         <img src={ref28} alt="Fairs" style={imageStyle} />
-        <p>Supermarket Refrigerators</p>
+        <p>{t("SupermarketRefrigerators")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getbalst}>
         <img src={ref29} alt="Fairs" style={imageStyle} />
-        <p>Blast Chillers & Flash Freezers</p>
+        <p>{t("BlastChillers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getcoldroom}>
         <img src={ref30} alt="Fairs" style={imageStyle} />
-        <p>Cold Rooms & Freezer Rooms</p>
+        <p>{t("ColdRoomsFreezer")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getdis}>
         <img src={ref31} alt="Fairs" style={imageStyle} />
-        <p>Display Refrigeration</p>
+        <p>{t("DisplayRefrigeration")}</p>
       </div>
       
     </div>
 
       </div>
       <hr/>
-<h1 className="flex  flex-wrap justify-center heads">Products</h1>
+<h1 className="flex  flex-wrap justify-center heads">{t("products")}</h1>
 <div className='flex  flex-wrap justify-center   '>
         {products.map((eachProduct, i) => (
           <Cardss index={eachProduct._id} price={eachProduct.price} img={eachProduct.imageUrl} text={eachProduct.name} 

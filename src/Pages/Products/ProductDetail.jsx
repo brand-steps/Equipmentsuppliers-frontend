@@ -8,8 +8,11 @@ import {Link, useNavigate} from 'react-router-dom';
 import { MyContext } from '../Context/Context';
 import CartContext from '../Context/CartContext';
 import { Table } from 'flowbite-react';
+import { useTranslation } from 'react-i18next'
 
 const Productdetail = () => {
+  const {t} = useTranslation(["details"]);
+
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
   const { cartItems } = useContext(CartContext);
@@ -23,7 +26,7 @@ const Productdetail = () => {
   const [totalPrice, setTotalPrice] = useState(parseFloat(pricep.key));
   
   const [showCart, setShowCart] = useState(false); // State to control cart slider visibility
-  const allProduct = [name ,  totalPrice , description , image , quantity , totalPrice]
+  const allProduct = [name ,  totalPrice , description , image , quantity , pricep.key]
   // setQuantityProduct({ ...image, key: img });
   const [showPopup, setShowPopup] = useState(false);
   const [showDiv, setShowDiv] = useState(false);
@@ -91,8 +94,8 @@ const Productdetail = () => {
   const {length , setlength } = useContext(MyContext);
 
   const buttonStyle = {
-    background: '#EC0C36',
-    color: 'white',
+    background: '#d6b02e',
+    color: 'black',
     fontWeight: 'bold',
     padding: '8px 16px',
     borderRadius: '8px',
@@ -220,29 +223,29 @@ Search
 
 <div   className='p-6 ' >
 <div className="flex items-center mt-2">
-  <h1 className="ml-2 text-lg font-bold text-black ">Summary</h1>
+  <h1 className="ml-2 text-lg font-bold text-black ">{t("Summary")}</h1>
 </div>
 <div className="flex items-center mt-2">
-  <h1 className="ml-2 text-sm font-medium text-black ">Color: {color.key}</h1>
+  <h1 className="ml-2 text-sm font-medium text-black ">{t("Color")}: {color.key}</h1>
 
 </div>
 <div className="flex items-center mt-2">
-  <h1 className="ml-2 text-sm font-medium text-black ">Material: {material.key}</h1>
+  <h1 className="ml-2 text-sm font-medium text-black ">{t("Material")}: {material.key}</h1>
 </div>
 <div className="flex items-center mt-2">
-  <h1 className="ml-2 text-sm font-medium text-black ">width: {Width.key} </h1>
+  <h1 className="ml-2 text-sm font-medium text-black ">{t("Width")}: {Width.key} </h1>
 </div>
 <div className="flex items-center mt-2">
-  <h1 className="ml-2 text-sm font-medium text-black ">Height: {height.key} </h1>
+  <h1 className="ml-2 text-sm font-medium text-black ">{t("Height")}: {height.key} </h1>
 </div>
 <div className="flex items-center mt-2">
-  <h1 className="ml-2 text-sm font-medium text-black ">Depth: {depth.key} </h1>
+  <h1 className="ml-2 text-sm font-medium text-black ">{t("Depth")}: {depth.key} </h1>
 </div>
 <div className="flex items-center mt-2">
-  <h1 className="ml-2 text-sm font-medium text-black ">Weight: {weight.key} </h1>
+  <h1 className="ml-2 text-sm font-medium text-black ">{t("Weight")}: {weight.key} </h1>
 </div>
 <div className="flex items-center mt-2">
-  <h1 className="ml-2 text-sm font-medium text-black ">Warranty: {warranty.key}</h1>
+  <h1 className="ml-2 text-sm font-medium text-black ">{t("Warranty")}: {warranty.key}</h1>
 </div>
 </div>
           </div>
@@ -271,7 +274,7 @@ Search
                 </p> 
   */}
               <p className="text-lg md:text-2xl text-red-600 font-semibold mb-2">
-              £{totalPrice.toFixed(2)} 
+              £{pricep.key} 
               </p>
               <div className="flex items-center mb-4">
                 <button
@@ -290,14 +293,14 @@ Search
               </div>
               {/* <Link to={`/PaymentPage/${totalPrice}`} className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg mt-4"> */}
               <button
-        className="bg-red-500 mr-4 hover:bg-red-600 text-white py-2 md:py-3 px-4 md:px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
-        style={{ backgroundColor: 'rgb(236, 12, 54)' }}
+        className="bg-red-500 mr-4 hover:bg-red-600 text-black font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+        style={{ backgroundColor: '#d6b02e' }}
         onClick={productCheckOut}
       >
-        Add to Cart
+        {t("AddtoCart")}
       </button>
       {showDiv && (
-        <div   style={{"zIndex" : "100" , "backgroundColor" : "rgb(236, 12, 54)" }} className="fixed bottom-0 left-0    right-0  p-4 border-t border-gray-300 text-white ">
+        <div   style={{"zIndex" : "100" , "backgroundColor" : "#d6b02e" }} className="fixed bottom-0 left-0    right-0  p-4 border-t border-gray-300 text-black ">
           <div className="flex justify-between items-center">
             <p  className='' >Your Product  has been added to the cart . <span   className='font-bold'  style={{"textDecoration" : "underline "}} ><Link to={'/CardPage'} >Click Here </Link></span></p> 
             <button onClick={closeDiv} className="text-red-500">
@@ -322,11 +325,11 @@ Search
       )}
 
               <button
-                className="bg-red-500 hover:bg-red-600 text-white py-2 md:py-3 px-4 md:px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
-                style={{ backgroundColor: 'rgb(236, 12, 54)' }}
+                className="bg-red-500 hover:bg-red-600 text-black font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+                style={{ backgroundColor: '#d6b02e' }}
                 onClick={handleAddToCart}
               >
-                Buy Now
+                {t("BuyNow")}
               </button>
               {/* </Link> */}
 
@@ -340,18 +343,18 @@ Search
 
           <div className='flex  justify-evenly flex-wrap my-4'>
       <div style={containerStyle}>
-<button style={buttonStyle} onClick={() => {setSpecshow(false)}}>Description</button>
+<button style={buttonStyle} onClick={() => {setSpecshow(false)}}>{t("Description")}</button>
       </div>
       <div style={containerStyle}>
 
-<button style={buttonStyle} onClick={() => {setSpecshow(true)}}>Specification</button>
+<button style={buttonStyle} onClick={() => {setSpecshow(true)}}>{t("Specification")}</button>
       </div>
 
 
     </div>
     {specshow ? (<>
       <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-2 md:mb-6">
-                Specification
+                {t("Specification")}
               </h1>
       {category.key === "Refrigeration" && (
                      <> <div className='flex  justify-evenly flex-wrap my-4'>
@@ -359,7 +362,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -370,7 +373,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                            {color.key}
@@ -378,7 +381,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                            {material.key}
@@ -386,7 +389,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Capacity
+                           {t("Capacity")}
                          </Table.Cell>
                          <Table.Cell>
                            {capacity.key}
@@ -394,7 +397,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Shelves
+                         {t("Shelves")}
                          </Table.Cell>
                          <Table.Cell>
                          {shelves.key}
@@ -402,7 +405,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           No of lids
+                         {t("Nooflids")}
                          </Table.Cell>
                          <Table.Cell>
                          {lid.key}
@@ -410,7 +413,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Lightening
+                         {t("Lightening")}
                          </Table.Cell>
                          <Table.Cell>
                          {lightening.key}
@@ -418,7 +421,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Noise level
+                           {t("Noiselevel")}
                          </Table.Cell>
                          <Table.Cell>
                          {level.key}
@@ -426,7 +429,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Doors
+                         {t("Doors")}
                          </Table.Cell>
                          <Table.Cell>
                          {door.key}
@@ -436,7 +439,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -446,7 +449,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -454,7 +457,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -462,7 +465,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -470,7 +473,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -480,7 +483,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Power supply
+                       {t("Powersupply")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -490,7 +493,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power consumption
+                         {t("Powerconsumption")}
                          </Table.Cell>
                          <Table.Cell>
                          {consumption.key}
@@ -498,7 +501,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power supply
+                         {t("Powersupply")}
                          </Table.Cell>
                          <Table.Cell>
                          {supply.key}
@@ -506,7 +509,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power
+                         {t("Power")}
                          </Table.Cell>
                          <Table.Cell>
                          {power.key}
@@ -515,7 +518,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Temperature
+                       {t("Temperature")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -525,7 +528,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Temperature
+                           {t("Temperature")}
                          </Table.Cell>
                          <Table.Cell>
                          {temperature.key}
@@ -533,7 +536,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Cooling
+                           {t("Cooling")}
                          </Table.Cell>
                          <Table.Cell>
                          {cooling.key}
@@ -541,7 +544,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Refrigerant
+                           {t("Refrigerant")}
                          </Table.Cell>
                          <Table.Cell>
                          {refrigerant.key}
@@ -550,7 +553,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -560,7 +563,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -579,7 +582,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -590,7 +593,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -598,7 +601,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -606,7 +609,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Capacity
+                           {t("Capacity")}
                          </Table.Cell>
                          <Table.Cell>
                          {capacity.key}
@@ -614,7 +617,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Water pressure inlet
+                         {t("Waterpressureinlet")}
                          </Table.Cell>
                          <Table.Cell>
                          {pressure.key}
@@ -622,7 +625,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Product casters
+                         {t("Productcasters")}
                          </Table.Cell>
                          <Table.Cell>
                          {castors.key}
@@ -630,7 +633,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Tray / Grid Size
+                         {t("TrayGridSize")}
                          </Table.Cell>
                          <Table.Cell>
                          {tray.key}
@@ -638,7 +641,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Production
+                           {t("Production")}
                          </Table.Cell>
                          <Table.Cell>
                          {production.key}
@@ -647,7 +650,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -657,7 +660,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -665,7 +668,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -673,7 +676,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -681,7 +684,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -689,7 +692,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Inner height
+                         {t("Innerheight")}
                          </Table.Cell>
                          <Table.Cell>
                          {innerheight.key}
@@ -697,7 +700,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Basket size
+                         {t("Basketsize")}
                          </Table.Cell>
                          <Table.Cell>
                          {basket.key}
@@ -707,7 +710,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Power supply
+                       {t("Powersupply")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -717,7 +720,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power consumption
+                         {t("Powerconsumption")}
                          </Table.Cell>
                          <Table.Cell>
                          {consumption.key}
@@ -725,7 +728,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power supply
+                         {t("Powersupply")}
                          </Table.Cell>
                          <Table.Cell>
                          {supply.key}
@@ -733,7 +736,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power
+                         {t("Power")}
                          </Table.Cell>
                          <Table.Cell>
                          {power.key}
@@ -742,7 +745,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Temperature
+                       {t("Temperature")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -752,7 +755,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Temperature
+                           {t("Temperature")}
                          </Table.Cell>
                          <Table.Cell>
                          {temperature.key}
@@ -761,7 +764,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Dishwashing & Rinsing
+                       {t("DishwashingRinsing")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -771,7 +774,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Volume wash tank
+                         {t("Volumewashtank")}
                          </Table.Cell>
                          <Table.Cell>
                          {volume.key}
@@ -779,7 +782,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Programs
+                         {t("Programs")}
                          </Table.Cell>
                          <Table.Cell>
                          {programs.key}
@@ -787,7 +790,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Washing cycles
+                         {t("Washingcycles")}
                          </Table.Cell>
                          <Table.Cell>
                          {cycles.key}
@@ -795,7 +798,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Drain pump
+                         {t("Drainpump")}
                          </Table.Cell>
                          <Table.Cell>
                          {pump.key}
@@ -803,7 +806,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Rinse tank power
+                         {t("Rinsetankpower")}
                          </Table.Cell>
                          <Table.Cell>
                          {rinsepower.key}
@@ -811,7 +814,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Rinse aid dispenser
+                         {t("Rinseaiddispenser")}
                          </Table.Cell>
                          <Table.Cell>
                          {dispenser.key}
@@ -819,7 +822,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Rinse function
+                         {t("Rinsefunction")}
                          </Table.Cell>
                          <Table.Cell>
                          {rinsefunc.key}
@@ -827,7 +830,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Volume rinse tank
+                         {t("Volumerinsetank")}
                          </Table.Cell>
                          <Table.Cell>
                          {volumerinse.key}
@@ -836,7 +839,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -846,7 +849,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -865,7 +868,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -876,7 +879,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -884,7 +887,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -892,7 +895,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Capacity
+                           {t("Capacity")}
                          </Table.Cell>
                          <Table.Cell>
                          {capacity.key}
@@ -900,7 +903,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Version
+                         {t("Version")}
                          </Table.Cell>
                          <Table.Cell>
                          {version.key}
@@ -908,7 +911,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Dranage tap
+                         {t("Dranagetap")}
                          </Table.Cell>
                          <Table.Cell>
                          {tap.key}
@@ -918,7 +921,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -928,7 +931,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -936,7 +939,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -944,7 +947,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -952,7 +955,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -960,7 +963,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Inner Height
+                         {t("Innerheight")}
                          </Table.Cell>
                          <Table.Cell>
                          {innerheight.key}
@@ -968,7 +971,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Product Output
+                         {t("ProductOutput")}
                          </Table.Cell>
                          <Table.Cell>
                          {output.key}
@@ -978,7 +981,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Power supply
+                       {t("Powersupply")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -988,7 +991,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power consumption
+                         {t("Powerconsumption")}
                          </Table.Cell>
                          <Table.Cell>
                          {consumption.key}
@@ -996,7 +999,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power supply
+                         {t("Powersupply")}
                          </Table.Cell>
                          <Table.Cell>
                          {supply.key}
@@ -1004,7 +1007,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power
+                         {t("Power")}
                          </Table.Cell>
                          <Table.Cell>
                          {power.key}
@@ -1013,7 +1016,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Temperature
+                       {t("Temperature")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1023,7 +1026,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Temperature
+                           {t("Temperature")}
                          </Table.Cell>
                          <Table.Cell>
                          {temperature.key}
@@ -1032,7 +1035,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1042,7 +1045,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -1061,7 +1064,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1072,7 +1075,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -1080,7 +1083,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -1088,7 +1091,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Bottom shelf
+                         {t("Bottomshelf")}
                          </Table.Cell>
                          <Table.Cell>
                          {bottomshelf.key}
@@ -1096,7 +1099,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Bowl position
+                         {t("Bowlposition")}
                          </Table.Cell>
                          <Table.Cell>
                          {bowlpos.key}
@@ -1104,7 +1107,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Sink bowls
+                         {t("Sinkbowls")}
                          </Table.Cell>
                          <Table.Cell>
                          {sinkbowl.key}
@@ -1112,7 +1115,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Feets
+                         {t("Feets")}
                          </Table.Cell>
                          <Table.Cell>
                          {feet.key}
@@ -1120,7 +1123,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Upstand size
+                         {t("Upstandsize")}
                          </Table.Cell>
                          <Table.Cell>
                          {upstand.key}
@@ -1130,7 +1133,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1140,7 +1143,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -1148,7 +1151,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -1156,7 +1159,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -1164,7 +1167,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -1174,7 +1177,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Assembled
+                       {t("Assembled")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1185,7 +1188,7 @@ Search
                        
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Assembled
+                         {t("Assembled")}
                          </Table.Cell>
                          <Table.Cell>
                          {assembly.key}
@@ -1195,7 +1198,7 @@ Search
                       
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1205,7 +1208,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -1225,7 +1228,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1236,7 +1239,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -1244,7 +1247,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -1252,7 +1255,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Timer
+                           {t("Timer")}
                          </Table.Cell>
                          <Table.Cell>
                          {timer.key}
@@ -1262,7 +1265,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1272,7 +1275,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -1280,7 +1283,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -1288,7 +1291,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -1296,7 +1299,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -1304,7 +1307,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Inner Height
+                         {t("Innerheight")}
                          </Table.Cell>
                          <Table.Cell>
                          {innerheight.key}
@@ -1313,7 +1316,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Controls
+                       {t("Controls")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1324,7 +1327,7 @@ Search
                        
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Controls
+                         {t("Controls")}
                          </Table.Cell>
                          <Table.Cell>
                          {controls.key}
@@ -1333,7 +1336,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Power supply
+                       {t("Powersupply")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1343,7 +1346,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power consumption
+                         {t("Powerconsumption")}
                          </Table.Cell>
                          <Table.Cell>
                          {consumption.key}
@@ -1351,7 +1354,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power supply
+                         {t("Powersupply")}
                          </Table.Cell>
                          <Table.Cell>
                          {supply.key}
@@ -1359,7 +1362,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power
+                         {t("Power")}
                          </Table.Cell>
                          <Table.Cell>
                          {power.key}
@@ -1368,7 +1371,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Temperature
+                       {t("Temperature")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1378,7 +1381,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Temperature
+                           {t("Temperature")}
                          </Table.Cell>
                          <Table.Cell>
                          {temperature.key}
@@ -1388,7 +1391,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1398,7 +1401,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -1417,7 +1420,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1428,7 +1431,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -1436,7 +1439,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -1452,7 +1455,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Speeds
+                         {t("Speeds")}
                          </Table.Cell>
                          <Table.Cell>
                          {speeds.key}
@@ -1460,7 +1463,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Included
+                         {t("Included")}
                          </Table.Cell>
                          <Table.Cell>
                          {included.key}
@@ -1470,7 +1473,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1480,7 +1483,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -1488,7 +1491,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -1496,7 +1499,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -1504,7 +1507,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -1513,7 +1516,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Power supply
+                       {t("Powersupply")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1523,7 +1526,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power consumption
+                         {t("Powerconsumption")}
                          </Table.Cell>
                          <Table.Cell>
                          {consumption.key}
@@ -1531,7 +1534,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power supply
+                         {t("Powersupply")}
                          </Table.Cell>
                          <Table.Cell>
                          {supply.key}
@@ -1539,7 +1542,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power
+                         {t("Power")}
                          </Table.Cell>
                          <Table.Cell>
                          {power.key}
@@ -1549,7 +1552,7 @@ Search
                      
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1559,7 +1562,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -1578,7 +1581,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1589,7 +1592,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -1597,7 +1600,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -1605,7 +1608,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Capacity
+                           {t("Capacity")}
                          </Table.Cell>
                          <Table.Cell>
                          {capacity.key}
@@ -1613,7 +1616,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Bin
+                         {t("Bin")}
                          </Table.Cell>
                          <Table.Cell>
                          {bin.key}
@@ -1621,7 +1624,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Water connection
+                         {t("Waterconnection")}
                          </Table.Cell>
                          <Table.Cell>
                          {waterconnection.key}
@@ -1629,7 +1632,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Type
+                         {t("Type")}
                          </Table.Cell>
                          <Table.Cell>
                          {type.key}
@@ -1637,7 +1640,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Production
+                           {t("Production")}
                          </Table.Cell>
                          <Table.Cell>
                          {production.key}
@@ -1645,7 +1648,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Noise level
+                         {t("Noiselevel")}
                          </Table.Cell>
                          <Table.Cell>
                          {level.key}
@@ -1655,7 +1658,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1665,7 +1668,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -1673,7 +1676,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -1681,7 +1684,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -1689,7 +1692,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -1699,7 +1702,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Power supply
+                       {t("Powersupply")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1709,7 +1712,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power supply
+                         {t("Powersupply")}
                          </Table.Cell>
                          <Table.Cell>
                          {supply.key}
@@ -1717,7 +1720,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power
+                         {t("Power")}
                          </Table.Cell>
                          <Table.Cell>
                          {power.key}
@@ -1726,7 +1729,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Temperature
+                       {t("Temperature")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1736,7 +1739,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Temperature
+                           {t("Temperature")}
                          </Table.Cell>
                          <Table.Cell>
                          {temperature.key}
@@ -1744,7 +1747,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Cooling
+                           {t("Cooling")}
                          </Table.Cell>
                          <Table.Cell>
                          {cooling.key}
@@ -1752,7 +1755,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Refrigerant
+                           {t("Refrigerant")}
                          </Table.Cell>
                          <Table.Cell>
                          {refrigerant.key}
@@ -1761,7 +1764,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1771,7 +1774,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -1790,7 +1793,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1801,7 +1804,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -1809,7 +1812,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -1817,7 +1820,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Capacity
+                           {t("Capacity")}
                          </Table.Cell>
                          <Table.Cell>
                          {capacity.key}
@@ -1825,7 +1828,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Lock
+                         {t("Lock")}
                          </Table.Cell>
                          <Table.Cell>
                          {lock.key}
@@ -1833,7 +1836,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Shelves
+                           {t("Shelves")}
                          </Table.Cell>
                          <Table.Cell>
                          {shelves.key}
@@ -1841,7 +1844,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Work surface
+                         {t("Worksurface")}
                          </Table.Cell>
                          <Table.Cell>
                          {worksurface.key}
@@ -1849,7 +1852,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Tray / Grid size
+                           {t("TrayGridSize")}
                          </Table.Cell>
                          <Table.Cell>
                          {tray.key}
@@ -1858,7 +1861,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1868,7 +1871,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -1876,7 +1879,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -1884,7 +1887,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -1892,7 +1895,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -1902,7 +1905,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Power supply
+                       {t("Powersupply")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1912,7 +1915,7 @@ Search
                      <Table.Body className="divide-y">
                      <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Gas consumption
+                         {t("Gasconsumption")}
                          </Table.Cell>
                          <Table.Cell>
                          {gasconsumption.key}
@@ -1920,7 +1923,7 @@ Search
                        </Table.Row>
                      <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power consumption
+                         {t("Powerconsumption")}
                          </Table.Cell>
                          <Table.Cell>
                          {consumption.key}
@@ -1928,7 +1931,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power supply
+                         {t("Powersupply")}
                          </Table.Cell>
                          <Table.Cell>
                          {supply.key}
@@ -1936,7 +1939,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power
+                         {t("Power")}
                          </Table.Cell>
                          <Table.Cell>
                          {power.key}
@@ -1945,7 +1948,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Controls
+                       {t("Controls")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1955,7 +1958,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Controls
+                         {t("Controls")}
                          </Table.Cell>
                          <Table.Cell>
                          {controls.key}
@@ -1965,7 +1968,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Temperature
+                       {t("Temperature")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -1975,7 +1978,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Temperature
+                           {t("Temperature")}
                          </Table.Cell>
                          <Table.Cell>
                          {temperature.key}
@@ -1983,7 +1986,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Cooling
+                           {t("Cooling")}
                          </Table.Cell>
                          <Table.Cell>
                          {cooling.key}
@@ -1991,7 +1994,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Refrigerant
+                           {t("Refrigerant")}
                          </Table.Cell>
                          <Table.Cell>
                          {refrigerant.key}
@@ -1999,7 +2002,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Defrost
+                         {t("Defrost")}
                          </Table.Cell>
                          <Table.Cell>
                          {defrost.key}
@@ -2008,7 +2011,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2018,7 +2021,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -2037,7 +2040,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2048,7 +2051,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -2056,7 +2059,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -2064,7 +2067,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Capacity
+                           {t("Capacity")}
                          </Table.Cell>
                          <Table.Cell>
                          {capacity.key}
@@ -2072,7 +2075,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Steam / Humidification
+                         {t("SteamHumidification")}
                          </Table.Cell>
                          <Table.Cell>
                          {steam.key}
@@ -2080,7 +2083,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Timer
+                           {t("Timer")}
                          </Table.Cell>
                          <Table.Cell>
                          {timer.key}
@@ -2088,7 +2091,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Included
+                         {t("Included")}
                          </Table.Cell>
                          <Table.Cell>
                          {included.key}
@@ -2096,7 +2099,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Tray / Grid size
+                           {t("TrayGridSize")}
                          </Table.Cell>
                          <Table.Cell>
                          {tray.key}
@@ -2105,7 +2108,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2115,7 +2118,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -2123,7 +2126,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -2131,7 +2134,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -2139,7 +2142,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Weight
+                         {t("Weight")}
                          </Table.Cell>
                          <Table.Cell>
                          {weight.key}
@@ -2149,7 +2152,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Power supply
+                       {t("Powersupply")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2159,7 +2162,7 @@ Search
                      <Table.Body className="divide-y">
                      <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Output
+                         {t("Output")}
                          </Table.Cell>
                          <Table.Cell>
                          {output.key}
@@ -2167,7 +2170,7 @@ Search
                        </Table.Row>
                      <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power consumption
+                         {t("Powerconsumption")}
                          </Table.Cell>
                          <Table.Cell>
                          {consumption.key}
@@ -2175,7 +2178,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power supply
+                         {t("Powersupply")}
                          </Table.Cell>
                          <Table.Cell>
                          {supply.key}
@@ -2183,7 +2186,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Power
+                         {t("Power")}
                          </Table.Cell>
                          <Table.Cell>
                          {power.key}
@@ -2192,7 +2195,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Controls
+                       {t("Controls")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2202,7 +2205,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Controls
+                           {t("Controls")}
                          </Table.Cell>
                          <Table.Cell>
                          {controls.key}
@@ -2212,7 +2215,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Temperature
+                       {t("Temperature")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2222,7 +2225,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Temperature
+                           {t("Temperature")}
                          </Table.Cell>
                          <Table.Cell>
                          {temperature.key}
@@ -2232,7 +2235,7 @@ Search
                        </Table.Body>
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2242,7 +2245,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}
@@ -2262,7 +2265,7 @@ Search
                      <Table>
                      <Table.Head>
                        <Table.HeadCell>
-                       Miscellaneous
+                       {t("Miscellaneous")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2273,7 +2276,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Color
+                           {t("Color")}
                          </Table.Cell>
                          <Table.Cell>
                          {color.key}
@@ -2281,7 +2284,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Material
+                           {t("Material")}
                          </Table.Cell>
                          <Table.Cell>
                          {material.key}
@@ -2289,7 +2292,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Capacity
+                           {t("Capacity")}
                          </Table.Cell>
                          <Table.Cell>
                          {capacity.key}
@@ -2297,7 +2300,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Pieces
+                         {t("Pieces")}
                          </Table.Cell>
                          <Table.Cell>
                          {pieces.key}
@@ -2307,7 +2310,7 @@ Search
                      </Table.Body>
                      <Table.Head>
                        <Table.HeadCell>
-                       Dimensions
+                       {t("Dimensions")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2317,7 +2320,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Width
+                         {t("Width")}
                          </Table.Cell>
                          <Table.Cell>
                          {Width.key}
@@ -2325,7 +2328,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Depth
+                         {t("Depth")}
                          </Table.Cell>
                          <Table.Cell>
                          {depth.key}
@@ -2333,7 +2336,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Height
+                         {t("Height")}
                          </Table.Cell>
                          <Table.Cell>
                          {height.key}
@@ -2341,7 +2344,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Length
+                         {t("Length")}
                          </Table.Cell>
                          <Table.Cell>
                          {length.key}
@@ -2349,7 +2352,7 @@ Search
                        </Table.Row>
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                         Diameter
+                         {t("Diameter")}
                          </Table.Cell>
                          <Table.Cell>
                          {diameter.key}
@@ -2360,7 +2363,7 @@ Search
                      
                        <Table.Head>
                        <Table.HeadCell>
-                       Warranty
+                       {t("Warranty")}
                        </Table.HeadCell>
                        <Table.HeadCell>
                          
@@ -2370,7 +2373,7 @@ Search
                      <Table.Body className="divide-y">
                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                           Warranty
+                           {t("Warranty")}
                          </Table.Cell>
                          <Table.Cell>
                          {warranty.key}

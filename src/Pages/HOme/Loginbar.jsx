@@ -6,8 +6,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import { MyContext } from "../Context/Context";
+import { useTranslation } from 'react-i18next'
 
 const Loginbar = () => {
+  const {i18n, t} = useTranslation(["home"])
+
   const {
     name,
     setName,
@@ -81,22 +84,19 @@ const Loginbar = () => {
         id="menu"
       >
         <li className="md:border-none mt-2    mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
-          <Link to="/">Home</Link>
+          <Link to="/">{t("home")}</Link>
         </li>
         <li className="border-t md:border-none mt-2 mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
-          <Link to="/Corporate">Corporate</Link>
+          <Link to="/Corporate">{t("supplier")}</Link>
         </li>
         <li className="border-t md:border-none mt-2 mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
-          <Link to="/Prducts">Products</Link>
+          <Link to="/Prducts">{t("Products")}</Link>
         </li>
         <li className="border-t md:border-none mt-2 mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
-          <Link to="/OurDocument">Our Documents</Link>
+          <Link to="/TechnicalService">{t("about")}</Link>
         </li>
         <li className="border-t md:border-none mt-2 mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
-          <Link to="/TechnicalService">Technical Services</Link>
-        </li>
-        <li className="border-t md:border-none mt-2 mr-4 text-white font-bold hover:text-blue-500 transition duration-300 ease-in-out">
-          <Link to="/Contact">Contact</Link>
+          <Link to="/Contact">{t("contact")}</Link>
         </li>
         
         

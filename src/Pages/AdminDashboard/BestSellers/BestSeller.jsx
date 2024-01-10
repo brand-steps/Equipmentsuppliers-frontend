@@ -18,7 +18,7 @@ export const BestSellers = () => {
 
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/bestsellerdisplay`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/bestsellerdisplay`);
       console.log("response: ", response);
       console.log(products);
       setProducts(response.data.data);
@@ -29,7 +29,7 @@ export const BestSellers = () => {
 
   const NotBestseller = async (id)=>{
     try {
-      const response = await axios.get(`http://localhost:8000/bestsellerdisapprove/${id}`)
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/bestsellerdisapprove/${id}`)
       console.log("response: ", response.data);
     } catch (error) {
       console.log("error in approving all requests", error);
@@ -39,7 +39,7 @@ export const BestSellers = () => {
   };
   const approveBestSeller = async (id)=>{
     try {
-      const response = await axios.get(`http://localhost:8000/bestsellerapprove/${id}`)
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/bestsellerapprove/${id}`)
       console.log("response: ", response.data);
     } catch (error) {
       console.log("error in approving all requests", error);

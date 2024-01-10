@@ -1,0 +1,18 @@
+{
+    "order": "Order Summary",
+    "orderdes": "Check your items. And select a suitable shipping method.",
+    "shipping": "Shipping Methods",
+    "payment": "Payment Details",
+    "paymentdes": "Complete your order by providing your payment details.",
+    "cardname": "Card Holder Name",
+    "cardhol": "Your full name here",
+    "mobile": "Mobile Number",
+    "mobilehol": "Your mobile number here",
+    "carddetails": "Card Details",
+    "billing": "Billing Address",
+    "street": "Street Address",
+    "subtotal": "Subtotal",
+    "shippingprice": "Shipping",
+    "total": "Total",
+    "placeorder": "Place Order"
+}

@@ -15,7 +15,10 @@ import CategorySlider from './CategorySlider'
 import Sidebar from '../AdminDashboard/Sidebar'
 import SearchBar from '../HOme/SearchBar'
 import ProductGroup2 from '../FirstPage/ProductGroup/ProductGroup2.'
+import { useTranslation } from 'react-i18next'
+
 const Prducts = () => {
+  const {t} = useTranslation(["product"]);
 
 
   const [searchInput, setSearchInput] = useState("");
@@ -24,8 +27,8 @@ const Prducts = () => {
   const [page, setPage] = useState(1)
   const [numberOfPages, setnumberOfPages] = useState(9)
   const [StarsArray, setStarsArray] = useState([1, 2, 3])
-  let text = "Home  > Product Groups "
-  let name = "PRODUCT GROUPS"
+  let text = "Home  > Products "
+  let name = "PRODUCTS"
 
 
   const performSearch = async () => {
@@ -41,7 +44,7 @@ const Prducts = () => {
   };
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/v1/paginatpost?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/api/v1/paginatpost?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)
@@ -63,8 +66,8 @@ const Prducts = () => {
       <Home />
       <div className="bg-cover flex flex-col w-full h-[300px] mb-4" style={{ backgroundImage: 'url(https://www.osimo.com.tr/assets/images/headers/pages.jpg)' }}>
         <div className='flex w-full h-[300px] justify-between items-center px-4 md:px-24'>
-          <h1 className='text-white text-sm md:text-xl lg:text-2xl'>{name}</h1>
-          <h1 className='text-white text-sm md:text-xl lg:text-2xl'>{text}</h1>
+         <Link to={"/"}> <h1 className='text-white text-sm md:text-xl lg:text-2xl'>PRODUCTS</h1></Link>
+          <h1 className='text-white text-sm md:text-xl lg:text-2xl'>{t("Home")}</h1>
 
 
 

@@ -5,9 +5,12 @@ import 'react-multi-carousel/lib/styles.css';
 import axios from 'axios';
 import ProductSlider from '../FirstPage/ProductGroup/ProductSlider.jsx/ProductSlider.jsx';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 
 
 const CategorySlider = () => {
+    const {t} = useTranslation(["product"]);
+
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [productsBoolean, setProductsBoolean] = useState(false);
@@ -38,7 +41,7 @@ const CategorySlider = () => {
     const getAllProducts = async () => {
         
         try {
-            const response = await axios.get(`http://localhost:8000/api/v1/products`);
+            const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/api/v1/products`);
             console.log("response: ", response);
             console.log(products);
             setProducts(response.data.data);
@@ -50,7 +53,7 @@ const CategorySlider = () => {
         setCategory(value);
         console.log("sss",category)
         try {
-            const response = await axios.get(`http://localhost:8000/api/v1/products`);
+            const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/api/v1/products`);
             console.log("response: ", response);
             console.log(products);
             setProducts(response.data.data);
@@ -97,48 +100,48 @@ const CategorySlider = () => {
                 
                 <div onClick={() => {navigate("/Refrigeration")}} onMouseEnter={() => (setOpenBuffet(true))} onMouseLeave={() => (setOpenBuffet(false))} className='flex flex-col justify-center items-center'>
                     <img className='w-20 h-12	' src="https://ozti.com/media/vhpberxz/tasima_arabalari.svg" alt="" />
-                    <h1>Refrigeration</h1>
+                    <h1>{t("refrigeration")}</h1>
                 </div>
                 <div onClick={() => {navigate("/Dishwashing")}} onMouseEnter={() => (setDishwasherEquipment(true))} onMouseLeave={() => (setDishwasherEquipment(false))} className='flex flex-col justify-center items-center'>
                     <img className='w-20 h-12	' src="https://ozti.com/media/vr5npfcg/bulasik_giyotin.svg" alt="" />
-                    <h1>Diswashing</h1>
+                    <h1>{t("diswashing")}</h1>
                 </div>
                 <div onClick={() => {navigate("/Appliances")}} onMouseEnter={() => (setbakeryEqupent(true))} onMouseLeave={() => (setbakeryEqupent(false))} className='flex flex-col justify-center items-center'>
                     <img className='w-20 h-12' src="https://ozti.com/media/xgipiphp/pastane.svg" alt="" />
-                    <h1>Appliances</h1>
+                    <h1>{t("appliances")}</h1>
                 </div>
                 <div onClick={() => {navigate("/StainlessSteel")}} onMouseEnter={() => (setNeutral(true))} onMouseLeave={() => (setNeutral(false))} className='flex flex-col justify-center items-center'>
                     <img className='w-20 h-12	' src="https://ozti.com/media/b1zf4p3m/davlumbaz.svg" alt="" />
-                    <h1>Stainless Steel</h1>
+                    <h1>{t("stainless Steel")}</h1>
                 </div>
                 <div onClick={() => {navigate("/Cooking")}} onMouseEnter={() => (setCountertopKitchen(true))} onMouseLeave={() => (setCountertopKitchen(false))} className='flex flex-col justify-center items-center'>
                     <img className='w-20 h-12	' src="https://ozti.com/media/0ezpsikc/mutfak_gerecleri.svg" alt="" />
-                    <h1>Cooking</h1>
+                    <h1>{t("cooking")}</h1>
                 </div>
                 <div onClick={() => {navigate("/Foodprep")}} onMouseEnter={() => (setBeverageandBar(true))} onMouseLeave={() => (setBeverageandBar(false))}    className='flex flex-col justify-center items-center'>
                     <img className='w-20 h-12	' src="https://ozti.com/media/nlbmh4kh/buzlar-portakal.png" alt="" />
-                    <h1>Food prep</h1>
+                    <h1>{t("food")}</h1>
                 </div>
                 <div onClick={() => {navigate("/Beverage")}} onMouseEnter={() => (setTeaCoffee(true))} onMouseLeave={() => (setTeaCoffee(false))} className='flex flex-col justify-center items-center'>
                     <img className='w-20 h-12	' src="https://ozti.com/media/yrxeybpa/kahve_makinasi.svg" alt="" />
-                    <h1>Beverage Equipment</h1>
+                    <h1>{t("beverage")}t</h1>
                 </div>
 
 
                 <div onClick={() => {navigate("/Pizzeria")}} onMouseEnter={() => (setMainKitchenEquiment(true))} onMouseLeave={() => (setMainKitchenEquiment(false))} className='flex flex-col justify-center items-center'  >
                 <img className='w-20 h-12	' src="https://ozti.com/media/hbpeulq3/ada-mutfak.svg" alt="" />
-                    <h1>Pizzeria & Grill</h1>
+                    <h1>{t("pizzeria")}</h1>
 
                 </div>
 
 <div onClick={() => {navigate("/Ovens")}} onMouseEnter={() => (setMainKitchenEquiment(true))} onMouseLeave={() => (setMainKitchenEquiment(false))} className='flex flex-col justify-center items-center'  >
                     <img className='w-20 h-12	' src="https://ozti.com/media/mhtltgf5/ocak.svg" alt="" />
-                    <h1>Oven & Steamers</h1>
+                    <h1>{t("oven")}</h1>
 
                 </div>
                 <div onClick={() => {navigate("/Utensils")}} onMouseEnter={() => (setDesktopandPresentationEquiment(true))} onMouseLeave={() => (setDesktopandPresentationEquiment(false))} className='flex flex-col justify-center items-center'>
                     <img className='w-20 h-12	' src="https://ozti.com/media/odhfgpj3/spoon.svg" alt="" />
-                    <h1>Utensils</h1>
+                    <h1>{t("utensils")}</h1>
                 </div>
 
 {/*

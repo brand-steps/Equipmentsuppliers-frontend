@@ -1,0 +1,12 @@
+{
+    "contact": "Contact Us",
+    "contactpath": "Home  >   Contact",
+    "submit": "Submit",
+    "name": "Name",
+    "email": "Email address",
+    "description": "Your message",
+    "technical": "Technical Support",
+    "sales": "Sales Questions",
+    "info": "Info",
+    "bug": "Bug Report"
+}

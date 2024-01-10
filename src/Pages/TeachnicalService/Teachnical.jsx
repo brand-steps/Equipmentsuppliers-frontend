@@ -4,11 +4,15 @@ import Second from '../Corporate/SecondSec/Second'
 import Footer from '../Foooter/Footer'
 import MiddleSecTeachnical from './MiddleSec'
 import SecondTechnical from '../Corporate/SecondSec/SecondTechnical'
+import { useTranslation } from 'react-i18next'
+
 const Teachnical = () => {
+  const {t} = useTranslation(["coperate"]);
+
   return (
     <div>
 <Home/>
-<SecondTechnical   name="About Us" text1="Home  > " text2="About Us" />
+<SecondTechnical   name={`${t("about")}`} text1={`${t("techhead")}`} text2={`${t("about")}`} />
 <MiddleSecTeachnical/>
 
 <Footer/>

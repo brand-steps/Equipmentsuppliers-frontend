@@ -1,8 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+
 const ContactMiddle = () => {
+    const {t} = useTranslation(["contact"]);
+
   const datasend   = ()=>{
     alert('Data has been send Succesfully ')
+  }
+  const btcolor = {
+    backgroundColor: '#d6b02e'
   }
   return (
 
@@ -12,7 +19,7 @@ const ContactMiddle = () => {
   <section class="mb-32">
     <div class="flex justify-center">
       <div class="text-center md:max-w-xl lg:max-w-3xl">
-        <h2 class="mb-12 px-6 text-3xl font-bold">Contact Us</h2>
+        <h2 class="mb-12 px-6 text-3xl font-bold">{t("contact")}</h2>
       </div>
     </div>
 
@@ -28,19 +35,19 @@ const ContactMiddle = () => {
           <div class="relative mb-6" data-te-input-wrapper-init>
             <input type="email"
               class="peer block min-h-[auto] w-full rounded border border-red-600 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear  peer-focus:text-primary  motion-reduce:transition-none   dark:placeholder:text-neutral-200 dark:peer-focus:text-primary "
-              id="exampleInput91" placeholder="Email address" />
+              id="exampleInput91" placeholder={`${t("contact")}`} />
             
           </div>
           <div class="relative mb-6" data-te-input-wrapper-init>
             <textarea
               class="peer block min-h-[auto] w-full rounded border border-red-600 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear  peer-focus:text-primary  motion-reduce:transition-none   dark:placeholder:text-neutral-200 dark:peer-focus:text-primary "
             
-              id="exampleFormControlTextarea1" rows="3" placeholder="Your message"></textarea>
+              id="exampleFormControlTextarea1" rows="3" placeholder={`${t("description")}`}></textarea>
             
           </div>
           <button  onClick={datasend}   type="button" data-te-ripple-init data-te-ripple-color="light"
-            class="bg-red-600 px-12 py-2 text-white font-bold">
-            Submit
+            class="px-12 py-2 text-black font-bold" style={btcolor}>
+            {t("submit")}
           </button>
         </form>
       </div>
@@ -49,7 +56,7 @@ const ContactMiddle = () => {
           <div      class="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
             <div class="flex items-start">
             <div class="shrink-0">
-  <div class="inline-block rounded-md bg-red-600 p-4 text-white">
+  <div class="inline-block rounded-md p-4 text-black" style={btcolor}>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
       stroke="currentColor" class="h-6 w-6">
       <path stroke-linecap="round" stroke-linejoin="round"
@@ -61,11 +68,11 @@ const ContactMiddle = () => {
               <div class="ml-6 grow">
                 <p class="mb-2 font-bold text-black">
                   <Link to={'/Dashbord'}  >
-                  Technical Support
+                  {t("technical")}
                   </Link>
                 </p>
                 <p class="text-black  ">
-                  support@equimentSupplier.com
+                  support@equipmentsupplier.com
                 </p>
                 <p class="text-black  ">
                 01273 569355
@@ -76,7 +83,7 @@ const ContactMiddle = () => {
           <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
             <div class="flex items-start">
             <div class="shrink-0">
-  <div class="inline-block rounded-md bg-red-600 p-4 text-white">
+  <div class="inline-block rounded-md bg-red-600 p-4 text-black" style={btcolor}>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
       stroke="currentColor" class="h-6 w-6">
       <path stroke-linecap="round" stroke-linejoin="round"
@@ -87,10 +94,10 @@ const ContactMiddle = () => {
 
               <div class="ml-6 grow">
                 <p class="mb-2 font-bold text-black">
-                  Sales Questions
+                {t("sales")}
                 </p>
                 <p class="text-black  ">
-                  sales@equimentSupplier.com
+                  sales@equipmentsupplier.com
                 </p>
                 <p class="text-black  ">
                 01273 569355
@@ -101,7 +108,7 @@ const ContactMiddle = () => {
           <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
             <div class="align-start flex">
             <div class="shrink-0">
-  <div class="inline-block rounded-md bg-red-600 p-4 text-white">
+  <div class="inline-block rounded-md bg-red-600 p-4 text-black" style={btcolor}>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
       stroke="currentColor" class="h-6 w-6">
       <path stroke-linecap="round" stroke-linejoin="round"
@@ -111,9 +118,9 @@ const ContactMiddle = () => {
 </div>
 
               <div class="ml-6 grow">
-                <p class="mb-2 font-bold text-black">Info</p>
+                <p class="mb-2 font-bold text-black">{t("info")}</p>
                 <p class="text-black  ">
-                  info@equimentSupplier.com
+                  info@equipmentsupplier.com
                 </p>
                 <p class="text-black  ">
                 01273 569355
@@ -124,7 +131,7 @@ const ContactMiddle = () => {
           <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
             <div class="align-start flex">
             <div class="shrink-0">
-  <div class="inline-block rounded-md bg-red-600 p-4 text-white">
+  <div class="inline-block rounded-md bg-red-600 p-4 text-black" style={btcolor}>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
       stroke="currentColor" class="h-6 w-6">
       <path stroke-linecap="round" stroke-linejoin="round"
@@ -134,9 +141,9 @@ const ContactMiddle = () => {
 </div>
 
               <div class="ml-6 grow">
-                <p class="mb-2 font-bold text-black">Bug Report</p>
+                <p class="mb-2 font-bold text-black">{t("bug")}</p>
                 <p class="text-black  ">
-                  bugs@equimentSupplier.com
+                  bugs@equipmentsupplier.com
                 </p>
                 <p class="text-black  ">
                 01273 569355

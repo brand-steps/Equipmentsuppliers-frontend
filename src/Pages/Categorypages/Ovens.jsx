@@ -17,8 +17,10 @@ import oven9 from '../../Images/oven9.jpg';
 import oven10 from '../../Images/oven10.jpg';
 import oven11 from '../../Images/oven11.jpg';
 import oven12 from '../../Images/oven12.jpg';
+import { useTranslation } from 'react-i18next'
 
 const Ovens = () => {
+  const {t} = useTranslation(["product"]);
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
@@ -51,7 +53,7 @@ const Ovens = () => {
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
     width: '160px', // Adjust the width as needed
-    height: '180px',
+    height: '220px',
 
 
     // background: 'url("https://www.osimo.com.tr/assets/images/media-bg.jpg") center/cover no-repeat',
@@ -65,7 +67,7 @@ const Ovens = () => {
   };
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/ovens?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/ovens?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)
@@ -130,63 +132,63 @@ const Ovens = () => {
 
         <div style={containerStyle} className="subhovers" onClick={Geticecream}>
         <img src={oven1} alt="Fairs" style={imageStyle} />
-        <p>Electric Convection Ovens Manual Controls</p>
+        <p>{t("ElectricControls")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getjuice}>
         <img src={oven2} alt="Fairs" style={imageStyle} />
-        <p>Electric Combi Steamers Manual Controls</p>
+        <p>{t("ElectricManualControls")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getmachine}>
         <img src={oven3} alt="Fairs" style={imageStyle} />
-        <p>Electric Combi Steamers Digital Controls</p>
+        <p>{t("ElectricDigitalControls")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getmixers}>
         <img src={oven4} alt="Fairs" style={imageStyle} />
-        <p>Electric Bakery Ovens</p>
+        <p>{t("ElectricOvens")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getslush}>
         <img src={oven5} alt="Fairs" style={imageStyle} />
-        <p>Air Fryers</p>
+        <p>{t("AirFryers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getbar}>
         <img src={oven6} alt="Fairs" style={imageStyle} />
-        <p>Mini Ovens</p>
+        <p>{t("MiniOvens")}</p>
       </div>
       </div>
       <div className='flex justify-evenly flex-wrap my-4' >
       <div style={containerStyle} className="subhovers" onClick={getmilshake}>
         <img src={oven7} alt="Fairs" style={imageStyle} />
-        <p>Proofers, Proofing Ovens & Dehydrators</p>
+        <p>{t("ProofersDehydrators")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getespress}>
         <img src={oven8} alt="Fairs" style={imageStyle} />
-        <p>Potato Ovens</p>
+        <p>{t("PotatoOvens")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getfilter}>
         <img src={oven9} alt="Fairs" style={imageStyle} />
-        <p>Rotisseries Ovens</p>
+        <p>{t("RotisseriesOvens")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getcoffee}>
         <img src={oven10} alt="Fairs" style={imageStyle} />
-        <p>Microwave Ovens</p>
+        <p>{t("MicrowaveOvens")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getpercol}>
         <img src={oven11} alt="Fairs" style={imageStyle} />
-        <p>Modular Cooking Ovens</p>
+        <p>{t("ModularCookingOvens")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getwater}>
         <img src={oven12} alt="Fairs" style={imageStyle} />
-        <p>Oven Trays & Grids</p>
+        <p>{t("OvenGrids")}</p>
       </div>
       
     </div>
 
       </div>
       <hr/>
-<h1 className="flex  flex-wrap justify-center heads">Products</h1>
+<h1 className="flex  flex-wrap justify-center heads">{t("products")}</h1>
 <div className='flex  flex-wrap justify-center   '>
         {products.map((eachProduct, i) => (
           <Cardss index={eachProduct._id} price={eachProduct.price} img={eachProduct.imageUrl} text={eachProduct.name} 

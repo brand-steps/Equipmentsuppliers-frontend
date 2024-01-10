@@ -1,0 +1,18 @@
+{
+    "order": "podsumowanie zamowienia",
+    "orderdes": "Sprawdź swoje przedmioty. I wybierz odpowiednią metodę wysyłki.",
+    "shipping": "Metody wysyłki",
+    "payment": "Szczegóły płatności",
+    "paymentdes": "Dokończ zamówienie, podając dane do płatności.",
+    "cardname": "Imię właściciela karty",
+    "cardhol": "Twoje pełne imię i nazwisko tutaj",
+    "mobile": "Numer telefonu komórkowego",
+    "mobilehol": "Twój numer telefonu komórkowego tutaj",
+    "carddetails": "Szczegóły karty",
+    "billing": "Adres rozliczeniowy",
+    "street": "Adres ulicy",
+    "subtotal": "Suma częściowa",
+    "shippingprice": "Wysyłka",
+    "total": "Całkowity",
+    "placeorder": "Złożyć zamówienie"
+}

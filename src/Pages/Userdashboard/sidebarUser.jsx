@@ -9,7 +9,7 @@ const Sidebaruser = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:8000/logout", {
+      await axios.post("https://sore-cyan-fly-kit.cyclic.app/logout", {
         withCredentials: true, // This ensures that cookies are sent with the request
       });
       console.log("Logout successful");

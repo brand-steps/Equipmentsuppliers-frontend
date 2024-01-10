@@ -19,7 +19,7 @@ export const AllUser = () => {
 
   const getAllUser = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/api/v1/AllUser`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/api/v1/AllUser`);
       console.log("response: ", response);
       console.log(alluser);
       setalluser(response.data.data);
@@ -30,7 +30,7 @@ export const AllUser = () => {
 
   const deleteData = async (id)=>{
     try {
-      const response = await axios.delete(`http://localhost:8000/api/v1/user/${id}`)
+      const response = await axios.delete(`https://sore-cyan-fly-kit.cyclic.app/api/v1/user/${id}`)
       console.log("response: ", response.data);
       setdelete(!Delete)
     } catch (error) {

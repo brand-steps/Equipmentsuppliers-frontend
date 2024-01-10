@@ -2,6 +2,8 @@ import React from 'react'
 import {Link, useNavigate} from 'react-router-dom';
 import { useContext } from 'react';
 import { MyContext } from '../Context/Context';
+import { useTranslation } from 'react-i18next'
+
 const Cardss = ({ index ,  price , img , text , paragraph , colors , cats, mats, capicitys, shelf, lids, lights, levels,
 doors, widths, depths, heights, weights, consumptions, supplys, powers , temps ,refris, coolings, warrantys, castorss,
 trays , pressures, productions, innerheights, baskets, programss, volumes, cycless, pumps, rinsepowers, dispensers, 
@@ -11,6 +13,7 @@ defrosts, steams, piecess, diameters, lengths
 }) => {
 // console.log("Price" + price);
 // console.log("Imdex" + price);
+const {t} = useTranslation(["home"]);
   const {name, setName} = useContext(MyContext);
   const {pricep , setPricep} = useContext(MyContext);
   const {description, setDescription} = useContext(MyContext);
@@ -163,10 +166,10 @@ defrosts, steams, piecess, diameters, lengths
       </div>
       <button
         onClick={handleButtonClick}
-        style={{ background: "#EC0C36", width: "80%", margin: "0 auto" }}
-        className="text-white font-semibold px-4 py-2 rounded-lg mt-4 hover:bg-blue-700 transition-colors duration-300 ease-in-out"
+        style={{ background: "#d6b02e", width: "80%", margin: "0 auto" }}
+        className="text-black font-semibold px-4 py-2 rounded-lg mt-4 hover:bg-blue-700 transition-colors duration-300 ease-in-out"
       >
-        View Product
+        {t("viewbutton")}
       </button>
     </div>
   </div>

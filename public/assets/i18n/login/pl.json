@@ -1,0 +1,51 @@
+{
+    "customer": "Nowy klient",
+    "register": "Zarejestruj Konto",
+    "regdes": "Zakładając konto będziesz mógł szybciej robić zakupy, być na bieżąco ze statusem zamówienia i śledzić wcześniej złożone zamówienia.",
+    "continue": "Kontynuować",
+    "returning": "Powracający Klient",
+    "returningsub": "jestem stałym klientem",
+    "email": "Twój email",
+    "password": "Twoje hasło",
+    "retype": "Wpisz ponownie hasło",
+    "login": "Zaloguj się na swoje konto",
+
+    "signuphead": "Rejestracja dla klientów",
+    "firstname": "Imię",
+    "lastname": "Nazwisko",
+    "phone": "Telefon",
+    "postal": "Pocztowy",
+    "emailaddress": "Adres e-mail",
+    "address": "Adres",
+    "passwords": "Hasło",
+    "confirm": "Potwierdź hasło",
+    "country": "Wybierz kraj",
+    "city": "Miasto",
+    "state": "Państwo",
+    "registerscus": "Rejestr",
+    "firstnameerror": "Proszę podaj swoje imię",
+    "phoneerror": "proszę podać swój numer telefonu komórkowego",
+    "postalerror": "Wpisz swoj kod pocztowy",
+    "emailerror": "Proszę podać swój adres e-mail",
+    "addresserror": "Proszę wpisać swój adres",
+    "passworderror": "Wprowadź hasło",
+    "retypeerror": "Hasła nie pasują do siebie",
+    "countryerror": "Proszę wybrać kraj",
+    "cityerror": "proszę wpisać swoje miasto",
+
+
+    "clientlogin": "Logowanie klienta",
+    "suppliers": "Dostawca >",
+    "newclient": "Nowy klient",
+    "clientdes": "Zakładając konto będziesz mógł szybciej robić zakupy, być na bieżąco ze statusem zamówienia i śledzić wcześniej złożone zamówienia.",
+    "returningclient": "Powracający Klient",
+    "returningclientdes": "Jestem powracającym klientem",
+
+    "regsupplier": "Rejestracja dla klientów",
+    "company": "Firma",
+    "details": "Twoje dane osobowe",
+    "youraddress": "Twój adres",
+    "companyaddress": "adres spółki"
+
+    
+}

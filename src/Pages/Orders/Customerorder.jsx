@@ -29,7 +29,7 @@ const Customerorder = () => {
     };
     const getAllProducts = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/orderdisplay/${responce.email}`);
+          const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/orderdisplay/${responce.email}`);
           console.log("response: ", response);
           console.log(products);
           setProducts(response.data.data);
@@ -42,7 +42,7 @@ const Customerorder = () => {
 
       const deleteData = async (id)=>{
         try {
-          const response = await axios.delete(`http://localhost:8000/productreq/${id}`)
+          const response = await axios.delete(`https://sore-cyan-fly-kit.cyclic.app/productreq/${id}`)
           console.log("response: ", response.data);
           setdelete(!Delete)
         } catch (error) {
@@ -60,7 +60,7 @@ const Customerorder = () => {
 
         const getProfile = async () => {
           try {
-            let response = await axios.get(`http://localhost:8000/api/v1/customerprofile`,
+            let response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/api/v1/customerprofile`,
               {
                 withCredentials: true,
                 headers: {

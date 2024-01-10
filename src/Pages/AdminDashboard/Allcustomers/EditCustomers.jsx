@@ -14,7 +14,7 @@ const EditCustomers = () => {
 
 
     const fetchSingleCustomer = async() => {
-        const response = await axios.get(`http://localhost:8000/editcustomer/${id}`);
+        const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/editcustomer/${id}`);
         console.log("response: ", response);
       console.log(SingleCustomer);
       setSingleCustomer(response.data.Product);
@@ -34,7 +34,7 @@ const EditCustomers = () => {
 
     const handlesubmit = async () => {
         const UserData = { ...SingleCustomer};
-        const response = await axios.put(`http://localhost:8000/edittedCustomer/${id}`, UserData);
+        const response = await axios.put(`https://sore-cyan-fly-kit.cyclic.app/edittedCustomer/${id}`, UserData);
         alert("User Updated");
         navigate("/Allcustomers");
     }

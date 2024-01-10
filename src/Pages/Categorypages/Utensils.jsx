@@ -15,8 +15,10 @@ import ute7 from '../../Images/ute7.jpg';
 import ute8 from '../../Images/ute8.jpg';
 import ute9 from '../../Images/ute9.jpg';
 import ute10 from '../../Images/ute10.jpg';
+import { useTranslation } from 'react-i18next'
 
 const Utensils = () => {
+  const {t} = useTranslation(["product"]);
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
@@ -61,7 +63,7 @@ const Utensils = () => {
   };
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/Utensils?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/Utensils?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)
@@ -120,54 +122,54 @@ const Utensils = () => {
 
         <div style={containerStyle} className="subhovers" onClick={Geticecream}>
         <img src={ute1} alt="Fairs" style={imageStyle} />
-        <p>Kitchen Utensils</p>
+        <p>{t("KitchenUtensils")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getjuice}>
         <img src={ute2} alt="Fairs" style={imageStyle} />
-        <p>Pots & Pans</p>
+        <p>{t("PotsPans")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getmachine}>
         <img src={ute3} alt="Fairs" style={imageStyle} />
-        <p>Holders & Trays</p>
+        <p>{t("HoldersTrays")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getmixers}>
         <img src={ute4} alt="Fairs" style={imageStyle} />
-        <p>Dispensers, Squeeze Bottles & Sauce Boats</p>
+        <p>{t("DispensersSauceBoats")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getslush}>
         <img src={ute5} alt="Fairs" style={imageStyle} />
-        <p>Jugs & Carafes</p>
+        <p>{t("JugsCarafes")}</p>
       </div>
       </div>
       <div className='flex justify-evenly flex-wrap my-4' >
       <div style={containerStyle} className="subhovers" onClick={getbar}>
         <img src={ute6} alt="Fairs" style={imageStyle} />
-        <p>Cleaning Equipments</p>
+        <p>{t("CleaningEquipments")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getmilshake}>
         <img src={ute7} alt="Fairs" style={imageStyle} />
-        <p>Food Containers</p>
+        <p>{t("FoodContainers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getespress}>
         <img src={ute8} alt="Fairs" style={imageStyle} />
-        <p>Glass Holders</p>
+        <p>{t("GlassHolders")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getfilter}>
         <img src={ute9} alt="Fairs" style={imageStyle} />
-        <p>Tab Grabbers & Bill Holders</p>
+        <p>{t("TabGrabbers")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getcoffee}>
         <img src={ute10} alt="Fairs" style={imageStyle} />
-        <p>GN Containers</p>
+        <p>{t("GNContainers")}</p>
       </div>
       
     </div>
 
       </div>
       <hr/>
-<h1 className="flex  flex-wrap justify-center heads">Products</h1>
+<h1 className="flex  flex-wrap justify-center heads">{t("products")}</h1>
 <div className='flex  flex-wrap justify-center   '>
         {products.map((eachProduct, i) => (
           <Cardss index={eachProduct._id} price={eachProduct.price} img={eachProduct.imageUrl} text={eachProduct.name} 

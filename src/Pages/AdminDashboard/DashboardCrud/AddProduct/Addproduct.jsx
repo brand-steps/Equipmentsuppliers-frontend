@@ -216,7 +216,7 @@ if (!subcategory || subcategory == "Select a Sub category") {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/productrequestnew",
+        "https://sore-cyan-fly-kit.cyclic.app/productrequestnew",
         formData,
         {
           headers: {

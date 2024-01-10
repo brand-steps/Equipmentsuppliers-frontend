@@ -28,8 +28,10 @@ import app20 from '../../Images/app20.jpg';
 import app21 from '../../Images/app21.jpg';
 import app22 from '../../Images/app22.jpg';
 import app23 from '../../Images/app23.jpg';
+import { useTranslation } from 'react-i18next'
 
 const Appliances = () => {
+  const {t} = useTranslation(["product"]);
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
@@ -86,7 +88,7 @@ const Appliances = () => {
   };
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/Appliances?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/Appliances?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)
@@ -183,105 +185,105 @@ const Appliances = () => {
 
         <div style={containerStyle} onClick={Geticecream} className="subhovers">
         <img src={app1}  alt="Fairs" style={imageStyle} />
-        <p>Table Top Fryers</p>
+        <p>{t("TableTop")}</p>
       </div>
 
       <div style={containerStyle} onClick={Getjuice} className="subhovers">
         <img src={app2}  alt="Fairs" style={imageStyle} />
-        <p>Countertop Mixers</p>
+        <p>{t("CountertopMixers")}</p>
       </div>
       <div style={containerStyle} onClick={Getmachine} className="subhovers">
         <img src={app3}  alt="Fairs" style={imageStyle} />
-        <p>Griddles</p>
+        <p>{t("Griddles")}</p>
       </div>
       <div style={containerStyle} onClick={Getmixers} className="subhovers">
         <img src={app4}  alt="Fairs" style={imageStyle} />
-        <p>Microwaves</p>
+        <p>{t("Microwaves")}</p>
       </div>
       <div style={containerStyle} onClick={Getslush} className="subhovers">
         <img src={app5}  alt="Fairs" style={imageStyle} />
-        <p>Panini / Contact Grills</p>
+        <p>{t("Panini")}</p>
       </div>
       <div style={containerStyle} onClick={getbar} className="subhovers">
         <img src={app6}  alt="Fairs" style={imageStyle} />
-        <p>Roller Grills</p>
+        <p>{t("RollerGrills")}</p>
       </div>
       <div style={containerStyle} onClick={getmilshake} className="subhovers">
         <img src={app7}  alt="Fairs" style={imageStyle} />
-        <p>Food Warming</p>
+        <p>{t("FoodWarming")}</p>
       </div>
       <div style={containerStyle} onClick={Getespress} className="subhovers">
         <img src={app8} alt="Fairs" style={imageStyle} />
-        <p>Hotdog Warmers</p>
+        <p>{t("HotdogWarmers")}</p>
       </div>
       <div style={containerStyle} onClick={Getfilter} className="subhovers">
         <img src={app9}  alt="Fairs" style={imageStyle} />
-        <p>Heated Merchandisers / Displays</p>
+        <p>{t("HeatedMerchandisers")}</p>
       </div>
 
       <div style={containerStyle} onClick={Getcoffee} className="subhovers">
         <img src={app10}  alt="Fairs" style={imageStyle} />
-        <p>Induction Cookers</p>
+        <p>{t("InductionCookers")}</p>
       </div>
 
       <div style={containerStyle}  onClick={Getpercol} className="subhovers">
         <img src={app11} alt="Fairs" style={imageStyle} />
-        <p>Table Top Bains Marie & Hotpots</p>
+        <p>{t("TableTopBains")}</p>
       </div>
       <div style={containerStyle} onClick={Getwater} className="subhovers">
         <img src={app12}  alt="Fairs" style={imageStyle} />
-        <p>Soup Kettles</p>
+        <p>{t("SoupKettles")}</p>
       </div>
       <div style={containerStyle} onClick={getchoco} className="subhovers">
         <img src={app13} alt="Fairs" style={imageStyle} />
-        <p>Rice Cookers</p>
+        <p>{t("RiceCookers")}</p>
       </div>
       <div style={containerStyle} onClick={getcup} className="subhovers">
         <img src={app14} alt="Fairs" style={imageStyle} />
-        <p>Salamanders</p>
+        <p>{t("Salamanders")}</p>
       </div>
       <div style={containerStyle}  onClick={GetGlass} className="subhovers">
         <img src={app15} alt="Fairs" style={imageStyle} />
-        <p>Toasters</p>
+        <p>{t("Toasters")}</p>
       </div>
       <div style={containerStyle} onClick={Getunderdish} className="subhovers">
         <img src={app16} alt="Fairs" style={imageStyle} />
-        <p>Pressure Cookers</p>
+        <p>{t("PressureCookers")}</p>
       </div>
       <div style={containerStyle}  onClick={Getpassthrough} className="subhovers">
         <img src={app17} alt="Fairs" style={imageStyle} />
-        <p>Sous Vide & Slow Cookers</p>
+        <p>{t("SousVide")}</p>
       </div>
       <div style={containerStyle} onClick={Getdishwash} className="subhovers">
         <img src={app18} alt="Fairs" style={imageStyle} />
-        <p>Waffle Makers</p>
+        <p>{t("WaffleMakers")}</p>
       </div>
 
       <div style={containerStyle} onClick={Getcuttlery} className="subhovers">
         <img src={app19} alt="Fairs" style={imageStyle} />
-        <p>Knife Sterilisers</p>
+        <p>{t("KnifeSterilisers")}</p>
       </div>
       <div style={containerStyle} onClick={getshower} className="subhovers">
         <img src={app20} alt="Fairs" style={imageStyle} />
-        <p>Egg Boilers</p>
+        <p>{t("EggBoilers")}</p>
       </div>
       <div style={containerStyle} onClick={getracks} className="subhovers">
         <img src={app21} alt="Fairs" style={imageStyle} />
-        <p>Popcorn Machines</p>
+        <p>{t("PopcornMachines")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getcandy}>
         <img src={app22} alt="Fairs" style={imageStyle} />
-        <p>Candy Floss Machines</p>
+        <p>{t("CandyFlossMachines")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getinsect} >
         <img src={app23} alt="Fairs" style={imageStyle} />
-        <p>Insect Killers</p>
+        <p>{t("InsectKillers")}</p>
       </div>
     </div>
 
       </div>
       <hr/>
-<h1 className="flex  flex-wrap justify-center heads">Products</h1>
+<h1 className="flex  flex-wrap justify-center heads">{t("products")}</h1>
 <div className='flex  flex-wrap justify-center   '>
         {products.map((eachProduct, i) => (
           <Cardss index={eachProduct._id} price={eachProduct.price} img={eachProduct.imageUrl} text={eachProduct.name} 

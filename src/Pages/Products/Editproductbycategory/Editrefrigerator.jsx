@@ -18,7 +18,7 @@ const Editrefrigerator = () => {
 
 
     const fetchSingleProduct = async() => {
-        const response = await axios.get(`http://localhost:8000/singleproduct/${id}`);
+        const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/singleproduct/${id}`);
         console.log("response: ", response);
       console.log(singleproduct);
       setsingleproduct(response.data.Product);
@@ -47,7 +47,7 @@ const Editrefrigerator = () => {
 
     const handlesubmit = async () => {
         const productData = { ...singleproduct};
-        const response = await axios.put(`http://localhost:8000/editsProducts/${id}`, productData);
+        const response = await axios.put(`https://sore-cyan-fly-kit.cyclic.app/editsProducts/${id}`, productData);
 
 alert("Product Updated");
     }

@@ -16,13 +16,16 @@ import whats from '../../Images/whatss.png'
 import whatss from '../../Images/whatsapp.png'
 import whatsss from '../../Images/whatsapps.webp'
 import Whatsappchat from '../../Components/WhatsappChat/Whatsappchat';
+import Maps from '../Maps/Maps';
+import './mainpage.css'
 
 const MainPage = () => {
+
   return (
     <div>
 <Home />
   <Slider/>
-<Whatsappchat/>
+ <Whatsappchat/>
   <Cards/>
   
   <ProductGroup/>
@@ -31,6 +34,7 @@ const MainPage = () => {
   <Services/>
   <Login/>
    {/*<FairsComponent/>*/}
+<Maps/>
   <Footer/>
     </div>
   )

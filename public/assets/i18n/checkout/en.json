@@ -1,0 +1,11 @@
+{
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "summary" : "Summary",
+    "subtotal": "Subtotal",
+    "taxes": "Taxes",
+    "shipping": "Shipping",
+    "total": "Total",
+    "checkout": "Checkout"
+}

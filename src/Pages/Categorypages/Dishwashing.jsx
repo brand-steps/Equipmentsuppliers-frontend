@@ -12,8 +12,10 @@ import dis4 from '../../Images/dis4.jpg';
 import dis5 from '../../Images/dis5.jpg';
 import dis6 from '../../Images/dis6.jpg';
 import dis7 from '../../Images/dis7.jpg';
+import { useTranslation } from 'react-i18next'
 
 const Dishwashing = () => {
+  const {t} = useTranslation(["product"]);
 
     const navigate = useNavigate();
     const [products, setProducts] = useState([]);
@@ -55,7 +57,7 @@ const Dishwashing = () => {
   };
   const getAllProducts = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/Diswashing?page=${page}`);
+      const response = await axios.get(`https://sore-cyan-fly-kit.cyclic.app/Diswashing?page=${page}`);
       console.log("response: ", response);
       console.log(response.data);
       setnumberOfPages(response.data.pages)
@@ -103,32 +105,32 @@ const Dishwashing = () => {
 
         <div style={containerStyle} className="subhovers" onClick={GetGlass}>
         <img src={dis1} alt="Fairs" style={imageStyle} />
-        <p>Glasswashers</p>
+        <p>{t("Glasswashers")}</p>
       </div>
 
       <div style={containerStyle} className="subhovers" onClick={Getunderdish}>
         <img src={dis2} alt="Fairs" style={imageStyle} />
-        <p>Undercounter Dishwashers</p>
+        <p>{t("Undercounter Dishwashers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getpassthrough}>
         <img src={dis3} alt="Fairs" style={imageStyle} />
-        <p>Pass Through Dishwashers</p>
+        <p>{t("Pass Through Dishwashers")}</p>
       </div>
             <div style={containerStyle} className="subhovers" onClick={Getdishwash}>
         <img src={dis4} alt="Fairs" style={imageStyle} />
-        <p>Dishwasher Tables</p>
+        <p>{t("Dishwasher Tables")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={Getcuttlery}>
         <img src={dis5} alt="Fairs" style={imageStyle} />
-        <p>Cuttlery & Glass Polishers</p>
+        <p>{t("Cuttlery & Glass Polishers")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getshower}>
         <img src={dis6} alt="Fairs" style={imageStyle} />
-        <p>Shower Unit & Faucets</p>
+        <p>{t("Shower Unit & Faucets")}</p>
       </div>
       <div style={containerStyle} className="subhovers" onClick={getracks}>
         <img src={dis7} alt="Fairs" style={imageStyle} />
-        <p>Dishwasher Racks</p>
+        <p>{t("Dishwasher Racks")}</p>
       </div>
       
       
@@ -136,7 +138,7 @@ const Dishwashing = () => {
 
       </div>
       <hr/>
-<h1 className="flex  flex-wrap justify-center heads">Products</h1>
+<h1 className="flex  flex-wrap justify-center heads">{t("products")}</h1>
 <div className='flex  flex-wrap justify-center   '>
         {products.map((eachProduct, i) => (
           <Cardss index={eachProduct._id} price={eachProduct.price} img={eachProduct.imageUrl} text={eachProduct.name} 

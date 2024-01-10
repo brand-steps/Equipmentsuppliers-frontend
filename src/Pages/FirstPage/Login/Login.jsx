@@ -1,7 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from 'react-i18next'
 
 const Login = () => {
+  const {t} = useTranslation(["home"]);
   let button = "LOGIN  ";
   return (
     <div
@@ -16,14 +18,12 @@ const Login = () => {
       }}
     >
       <div className="flex flex-col">
-        <h3 style={{ color: "#EC0C36" }} className="text-2xl py-4">
-          Login
+        <h3 style={{ color: "#d6b02e" }} className="text-2xl py-4">
+          {t("login")}
         </h3>
         {/*<h1 className="text-white text-4xl font-bold mb-4">Login</h1>
    */}      <p className="text-white">
-          You can choose the desired and desired product and send the offer form
-          to our e-mail address You can choose the product you want and send it
-          to our e-mail address.
+          {t("logindes")}
         </p>
         <input
           type="text"
@@ -38,13 +38,13 @@ const Login = () => {
         <NavLink to="/Login">
           <button
             style={{
-              background: "#EC0C36",
+              background: "#d6b02e",
               padding: "8px 16px",
               fontSize: "16px",
             }}
-            className="text-white font-semibold rounded-lg mt-4 hover:bg-blue-700 w-40"
+            className="text-black font-semibold rounded-lg mt-4 hover:bg-blue-700 w-40"
           >
-            {button}
+            {t("login")}
           </button>
         </NavLink>
         ;

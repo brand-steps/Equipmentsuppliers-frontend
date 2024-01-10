@@ -1,11 +1,16 @@
 import React from 'react';
-import logo from '../../Images/equipment suppliers logo mini.png';
+import logo from '../../Images/newlogo.png';
 import CompanyLogo from '../../Images/bs logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from "react-router-dom";
 import { faFacebook, faTwitter, faInstagram , faLinkedin, faWhatsapp,  } from '@fortawesome/free-brands-svg-icons';
+import { useTranslation } from 'react-i18next'
 
 function Footer() {
+  const {t} = useTranslation(["home"]);
+  const textcolr = {
+    color: '#d6b02e'
+  }
   return (
     <footer className="bg-gray-900 text-white py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +21,7 @@ function Footer() {
        <img   width={"200px "}   src={logo} alt="" />
        </Link>
             <p className="text-sm">
-              Industrial kitchen equipment: It is the equipment that enables the work of enterprises such as restaurants, hotels, hospitals, factories and schools where large amounts of food production is carried out.
+            {t("footdes")}
             </p>
             <div className="flex gap-4 mt-2">
       <a href="https://www.facebook.com" className="text-blue-500 hover:text-blue-700">
@@ -36,52 +41,55 @@ function Footer() {
           </div>
           
           <div className="mt-8 md:mt-0">
-            <h2 className="text-2xl font-bold mb-2">Corporate</h2>
+            <h2 className="text-2xl font-bold mb-2" style={textcolr}>{t("ovendes")}</h2>
             <div className="border-b-2 border-red-600 w-10"></div>
             <ul className="mt-4 space-y-2">
             <li>
-        <Link to="/Corporate">About Us</Link>
+        <Link to="/Corporate">{t("corporate")}</Link>
       </li>
       <li>
-        <Link to="/TechnicalService">Our Vision</Link>
+        <Link to="/TechnicalService">{t("vision")}</Link>
       </li>
       <li>
-        <Link to="/Corporate">Our Mission</Link>
+        <Link to="/Corporate">{t("mission")}</Link>
       </li>
       <li>
-        <Link to="/OurDocument">Our Documents</Link>
+        <Link to="/OurDocument">{t("documents")}</Link>
       </li>
       <li>
-        <Link to="/PrivacyPolicy">Privacy Policy</Link>
+        <Link to="/PrivacyPolicy">{t("privacy")}</Link>
       </li>
             </ul>
           </div>
           <div className="mt-8 md:mt-0">
-            <h2 className="text-2xl font-bold mb-2">Product Groups</h2>
+            <h2 className="text-2xl font-bold mb-2" style={textcolr}>{t("Cities")}</h2>
             <div className="border-b-2 border-red-600 w-10"></div>
             <ul className="mt-4 space-y-2">
-              <li><a href="#">Dough Kneading Machine</a></li>
-              <li><a href="#">Blender/Mikser</a></li>
-              <li><a href="#"> Professional Dough Kneading </a></li>
-              <li><a href="#">  Oven</a></li>
-              <li><a href="#">   OVERTURN DOUGH KNEADI</a></li>
-              {/* ... other items ... */}
+         {/*}     <li><a href="#">{t("dough")}</a></li>
+              <li><a href="#">{t("blender")}</a></li>
+              <li><a href="#"> {t("professional")} </a></li>
+              <li><a href="#">  {t("ovens")}</a></li>
+              <li><a href="#">   {t("overturn")}</a></li>
+               */}
+                             <li><a href="/Sussex">Sussex {t("Cities")}</a></li>
+              <li><a href="/Kent">Kent {t("Cities")}</a></li>
+              <li><a href="/Surry"> Surry {t("Cities")}</a></li>
             </ul>
           </div>
           <div className="mt-8 md:mt-0">
-            <h2 className="text-2xl font-bold mb-2">Get in Touch</h2>
+            <h2 className="text-2xl font-bold mb-2" style={textcolr}>{t("get")}</h2>
             <div className="border-b-2 border-red-600 w-10"></div>
             <ul className="mt-4 space-y-2">
               <li className="font-bold">
-                Phone <br />
+              {t("phone")} <br />
                 01273 569355
               </li>
               <li className="font-bold">
-                E Mail <br />
+              {t("email")} <br />
                 Info@equipmentsuppliers.co.uk
               </li>
               <li className="font-bold">
-                Address <br />
+              {t("address")} <br />
                 Unit 19 Beach Cl, Newhaven BN9 0BY
               </li>
             </ul>
@@ -96,7 +104,7 @@ function Footer() {
   <hr className='w-4/5 sm:w-3/5 border border-gray-300' />
             <div className="text-sm text-white mt-2 font-2xl" >
               <Link  target="_blank" to="https://londonlogodesigners.co.uk/"  >
-                &copy; 2023 <span style={{textDecoration : "underline" }}    >Londonlogodesigners</span> . </Link> All rights reserved.
+                &copy; 2023 <span style={{textDecoration : "underline" }}    >LondonLogoDesigners</span> . </Link> {t("allright")}
             </div>
         </div>
 

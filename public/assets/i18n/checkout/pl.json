@@ -1,0 +1,11 @@
+{
+    "product": "Produkt",
+    "price": "Cena",
+    "quantity": "Ilość",
+    "summary" : "Streszczenie",
+    "subtotal": "Suma częściowa",
+    "taxes": "Podatki",
+    "shipping": "Wysyłka",
+    "total": "Całkowity",
+    "checkout": "Wymeldować się"
+}

@@ -25,7 +25,7 @@ function Login() {
   const navigate = useNavigate(); // Get the navigate function from React Router
 
   let baseUrl = "http://localhost:3000"
-let BEUrl = "http://localhost:8000"
+let BEUrl = "https://sore-cyan-fly-kit.cyclic.app"
 let DeployURL = "https://glorious-hat-bat.cyclic.app"
 let latesturl = "https://sore-cyan-fly-kit.cyclic.ap p";
 let newurl = "https://sore-cyan-fly-kit.cyclic.ap p"
@@ -38,7 +38,7 @@ let newurl = "https://sore-cyan-fly-kit.cyclic.ap p"
     // https://glorious-hat-bat.cyclic.app      // old url
     else {
       try {
-        let response = await axios.post(`http://localhost:8000/login`, {
+        let response = await axios.post(`https://sore-cyan-fly-kit.cyclic.app/login`, {
           email: email,
           password: password
         }, {
@@ -94,7 +94,7 @@ let newurl = "https://sore-cyan-fly-kit.cyclic.ap p"
     }
     if (email && phone && password && reTypepassword) {
       try {
-        const response = await axios.post('http://localhost:8000/signup', {
+        const response = await axios.post('https://sore-cyan-fly-kit.cyclic.app/signup', {
           username,
           email,
           phone,
